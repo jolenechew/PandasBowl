@@ -16,7 +16,8 @@ module.exports = {
   plugins: [
     require('tw-elements/dist/plugin'),
     require('flowbite/plugin'),
-    require("daisyui")
+    require("daisyui"),
+    require('@vueform/slider/tailwind'),
   ],
   content: [
       './src/**/*.{html,js}',

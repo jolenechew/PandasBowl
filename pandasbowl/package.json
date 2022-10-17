@@ -11,13 +11,16 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.6",
+    "@vueform/slider": "^2.1.5",
     "bootstrap": "^5.2.2",
     "core-js": "^3.8.3",
     "daisyui": "^2.31.0",
     "flowbite": "^1.5.3",
     "tw-elements": "^1.0.0-alpha12",
     "vue": "^3.2.41",
-    "vue-router": "^4.0.3"
+    "vue-range-slider": "^0.6.0",
+    "vue-router": "^4.0.3",
+    "vue-slider-component": "^3.2.20"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
