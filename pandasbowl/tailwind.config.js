@@ -2,7 +2,11 @@ module.exports = {
   purge: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   darkMode: false,
   theme: {
-    extend: {},
+     extend: {
+      spacing: {
+        '128': '32rem',
+      }
+    }
   },
   variants: {
     extend: {
@@ -10,10 +14,14 @@ module.exports = {
     },
   },
   plugins: [
-      require('flowbite/plugin')
+    require('tw-elements/dist/plugin'),
+    require('flowbite/plugin'),
+    require("daisyui")
   ],
   content: [
-      "./node_modules/flowbite/**/*.js"
+      './src/**/*.{html,js}',
+      "./node_modules/flowbite/**/*.js",
+      './node_modules/tw-elements/dist/js/**/*.js'
   ]
 
 };
