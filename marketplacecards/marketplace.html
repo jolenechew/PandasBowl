@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CARDS</title>
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!--Font Awesome-->
+    <script src="https://kit.fontawesome.com/c0f63a9145.js" crossorigin="anonymous"></script>
+    <!--Vue-->
+    <script src="https://unpkg.com/vue@next"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="title">
+        <h1>Marketplace</h1>
+    </div>
+
+    <div id="app">
+        <div class="searchcontainer">
+            <input id="search-input" type="search" class="searchbar form-control" placeholder="Search" v-model="search"/>
+        </div>
+
+        <div class="card-container" v-if="searchList.length">
+            <div v-for="recipe in searchList" :key="recipe.id" class="card">
+                <!-- Just a placeholder when got image just put it in -->
+                <a href="https://placeholder.com"><img src="https://via.placeholder.com/280" alt="" class="card-img-top"></a>
+                <!-- <img src="img/creamspa.jpg"  class="card-img-top" alt=""> -->
+                <div class="card-content">
+                    <h5 class="card-title">{{recipe.foodName}}</h5>
+                    <p class="card-text">{{recipe.instructions}}</p>
+                    <a href="#" class="btn btn-success"> ${{recipe.price}}</a>
+                    <button id="heart" class="heartbtn"><i class="fas fa-heart"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="error" v-else>
+            No Recipe Found: {{search}}
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
