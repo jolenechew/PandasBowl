@@ -93,97 +93,126 @@
   </button>
 </div>
 
-<section class="bg-white border-b py-8">
+<!--made the text of contrasting colours to look a bit nicer-->
+<section class="bg-white border-b py-8 bg-[#C8DBBE]">
       <div class="container max-w-6xl mx-auto">
         <div class="w-full mb-4">
           <div class="h-1 gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
         </div>
         <div class="flex flex-wrap">
           <div class="w-5/6 sm:w-1/2 p-6">
-            <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
-              Lorem ipsum dolor sit amet
+            <h3 class="text-6xl text-white font-bold mb-3 tracking-tight pt-10">
+              Sign up as a business! <span class="text-black">It'll blow your mind.</span>
             </h3>
-            <p class="text-gray-600 mb-8">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.
+            <p class="text-gray-600 mb-8 text-lg">
+              We know how difficult it is as a home-based business to stay afloat during difficult times. Post your listings for free and get organic traffic from customers.
               <br />
               <br />
 
-              Images from:
+              <!-- Images from:
 
-              <a class="text-pink-500 underline" href="https://undraw.co/">undraw.co</a>
+              <a class="text-pink-500 underline" href="https://undraw.co/">undraw.co</a> -->
             </p>
           </div>
           <div class="w-full sm:w-1/2 p-6">
             <img src="../assets/RoastedCauliflowerSalad.webp" class="rounded-lg h-128 w-full">
           </div>
         </div>
-        <div class="flex flex-wrap flex-col-reverse sm:flex-row">
+        <hr class="my-8 h-px bg-gray-200 border-0 dark:bg-gray-700">
+        <div class="flex flex-wrap flex-col-reverse sm:flex-row pt-10 pb-10">
           <div class="w-full sm:w-1/2 p-6 mt-6">
             <img src="../assets/RoastedCauliflowerSalad.webp" class="rounded-lg h-128 w-full">
           </div>
           <div class="w-full sm:w-1/2 p-6 mt-6">
             <div class="align-middle">
-              <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
-                Lorem ipsum dolor sit amet
+              <h3 class="text-6xl text-white font-bold mb-3 tracking-tight pt-10">
+                Sign up as a customer! <span class="text-black">Why you ask?</span>
               </h3>
-              <p class="text-gray-600 mb-8">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.
+              <p class="text-gray-600 mb-8 text-lg">
+                It's so difficult to get recipes that are suited to the million different diet types out there. Fret not! We do the job for you so you can just focus on cooking and supporting local businesses.
                 <br />
                 <br />
-                Images from:
+                <!-- Images from:
 
-                <a class="text-pink-500 underline" href="https://undraw.co/">undraw.co</a>
+                <a class="text-pink-500 underline" href="https://undraw.co/">undraw.co</a> -->
               </p>
             </div>
           </div>
         </div>
       </div>
     </section>
-
+    <!--added top recipes header before cards-->
+  <div class="p-10 pb-0 text-xl grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-5 bg-[#C8DBBE] text-black">Top Recipes &hearts;</div>
+  <!--edited the cards by adding some badges-->
 <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-5 bg-[#C8DBBE]">
     <!--Card 1-->
-    <div class="card-items">
-      <img class="w-full" src="../assets/foodCarouselTwo.jpeg" alt="Mountain">
-      <div class="px-6 py-4">
-        <div class="font-bold text-xl mb-2">Mountain</div>
-        <p class="text-gray-700 text-base">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
-        </p>
+    <div class="card w-30 bg-white shadow-xl">
+    <figure><img class="w-full" src="../assets/foodCarouselTwo.jpeg" /></figure>
+    <div class="card-body">
+      <h2 class="card-title text-black">
+        Caesar Salad
+        <div class="badge badge-accent">Marketplace</div>
+      </h2>
+      <p class="text-black">This Caesar salad recipe is guaranteed to impress dinner party guests! It's topped with homemade croutons, crisp veggies, and a rich, tangy dressing.</p>
+      <div class="card-actions justify-end">
+        <div class="badge badge-secondary badge-outline">Vegetarian</div> 
+        <div class="badge badge-error badge-outline">On Sale</div>
+      </div>
+      <div class="card-actions justify-end">
+        <router-link to="/marketplace" class="menu-items font-sans"><button class="btn btn-primary">Buy Now</button></router-link>
       </div>
     </div>
+  </div>
 
     <!--Card 2-->
-    <div class="card-items">
-      <img class="w-full" src="../assets/foodCarouselTwo.jpeg" alt="River">
-      <div class="px-6 py-4">
-        <div class="font-bold text-xl mb-2">River</div>
-        <p class="text-gray-700 text-base">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
-        </p>
+    <div class="card w-30 bg-white shadow-xl">
+    <figure><img class="w-full" src="../assets/foodCarouselTwo.jpeg" /></figure>
+    <div class="card-body">
+      <h2 class="card-title text-black">
+        Pizza Margherita
+        <div class="badge badge-secondary">Recipe</div>
+      </h2>
+      <p class="text-black">Here is the archetype of a thin-crust pizza pie, a pizza margherita adorned simply in the colors of the Italian flag: green from basil, white from mozzarella, red from tomato sauce. </p>
+      <div class="card-actions justify-end">
+        <div class="badge badge-secondary badge-outline">Vegetarian</div> 
       </div>
     </div>
+  </div>
 
     <!--Card 3-->
-    <div class="card-items">
-      <img class="w-full" src="../assets/foodCarouselTwo.jpeg" alt="Forest">
-      <div class="px-6 py-4">
-        <div class="font-bold text-xl mb-2">Forest</div>
-        <p class="text-gray-700 text-base">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
-        </p>
+    <div class="card w-30 bg-white shadow-xl">
+    <figure><img class="w-full" src="../assets/foodCarouselTwo.jpeg" /></figure>
+    <div class="card-body">
+      <h2 class="card-title text-black">
+        Keto Vanilla Cupcakes
+        <p class="badge badge-md badge-accent">Marketplace</p>
+        <p class="badge badge-md badge-secondary">Recipe</p>
+      </h2>
+      <p class="text-black">These cupcakes are super easy to make and the texture is light, fluffy, and melt-in-your-mouth good.</p>
+      <div class="card-actions justify-end">
+        <div class="badge badge-primary badge-outline">Keto</div> 
+        <div class="badge badge-error badge-outline">On Sale</div>
+      </div>
+      <div class="card-actions justify-end">
+        <router-link to="/marketplace" class="menu-items font-sans"><button class="btn btn-primary">Buy Now</button></router-link>
       </div>
     </div>
+  </div>
 
     <!--Card 4-->
-    <div class="card-items">
-      <img class="w-full" src="../assets/foodCarouselTwo.jpeg" alt="Forest">
-      <div class="px-6 py-4">
-        <div class="font-bold text-xl mb-2">Forest</div>
-        <p class="text-gray-700 text-base">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
-        </p>
+    <div class="card w-30 bg-white shadow-xl">
+    <figure><img class="w-full" src="../assets/foodCarouselTwo.jpeg" /></figure>
+    <div class="card-body">
+      <h2 class="card-title text-black">
+        Vegan Hamburger
+        <div class="badge badge-secondary">Recipe</div>
+      </h2>
+      <p class="text-black">Packed with flavour, these vegan corn burgers are healthy and seriously satisfying.</p>
+      <div class="card-actions justify-end">
+        <div class="badge badge-accent badge-outline">Vegan</div> 
       </div>
     </div>
+  </div>
   </div>
 
 <FooterComponent></FooterComponent>
