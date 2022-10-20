@@ -27,14 +27,12 @@
 
         <div class="card-container" v-if="searchList.length">
             <div v-for="recipe in searchList" :key="recipe.id" class="card">
-                <!-- Just a placeholder when got image just put it in -->
-                <a href="https://placeholder.com"><img src="https://via.placeholder.com/280" alt="" class="card-img-top"></a>
-                <!-- <img src="img/creamspa.jpg"  class="card-img-top" alt=""> -->
+                <img :src="recipe.image" alt="" class="card-img-top">
                 <div class="card-content">
                     <h5 class="card-title">{{recipe.foodName}}</h5>
-                    <p class="card-text">{{recipe.instructions}}</p>
+                    <p class="card-text">{{recipe.info}}</p>
                     <a href="#" class="btn btn-success"> ${{recipe.price}}</a>
-                    <button id="heart" class="heartbtn"><i class="fas fa-heart"></i></button>
+                    <button class="heartbtn" id="heart" ><i class="fas fa-heart"></i></button>
                 </div>
             </div>
         </div>
@@ -47,8 +45,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
