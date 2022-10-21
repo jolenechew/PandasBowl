@@ -1,3 +1,10 @@
+<script setup>
+    import {ref} from "vue";
+
+    const showMobileMenu = ref(true);
+
+</script>
+
 <template>
     <nav>
         <!-- desktop menu -->
@@ -45,19 +52,13 @@
         <!-- mobile menu -->
 
         <div class="md:hidden bg-[rgba(253,245,237,255)]" :class="{hidden: showMobileMenu}">
-            <router-link to="/" class="block py-1 px-2 hover:text-black text-green-400">Home</router-link>
-            <router-link to="/" class="block py-1 px-2 hover:text-black text-green-400">Recipes</router-link>
-            <router-link to="/" class="block py-1 px-2 hover:text-black text-green-400">Marketplace</router-link>
-            <router-link to="/login" class="block py-1 px-2 hover:text-black text-green-400">Login</router-link>
+            <router-link to="/" class="block py-1 px-2 hover:text-black text-black-400" @click="showMobileMenu = !showMobileMenu">Home</router-link>
+            <router-link to="/" class="block py-1 px-2 hover:text-black text-black-400" @click="showMobileMenu = !showMobileMenu">Recipes</router-link>
+            <router-link to="/" class="block py-1 px-2 hover:text-black text-black-400" @click="showMobileMenu = !showMobileMenu">Marketplace</router-link>
+            <router-link to="/login" class="block py-1 px-2 hover:text-black text-black-400" @click="showMobileMenu = !showMobileMenu">Login</router-link>
         </div>
     </nav>
 </template>
-
-<script setup>
-import {ref} from "vue";
-
-const showMobileMenu = ref(true);
-</script>
 
 
 <style scoped>
