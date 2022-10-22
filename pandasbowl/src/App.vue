@@ -9,7 +9,7 @@
     },
     data() {
       return {
-        isLoggedIn: localStorage.getItem('token')
+        isLoggedIn: localStorage.getItem('token'),
       }
     },
     created(){
@@ -22,7 +22,6 @@
 
 <template>
   <fragment>
-
     <SignedInNavBar v-if="isLoggedIn"/>
     <Navbar v-else/>
     <router-view/>
