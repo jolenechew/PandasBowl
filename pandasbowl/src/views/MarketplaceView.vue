@@ -104,18 +104,19 @@
 
 <template>
   <div class="container mx-auto">
-      <!-- Filter portion -->
+
       <div
          class="md:flex flex-row"
       >
+        <!-- Filter portion -->
         <!-- card -->
-        <div class=" mx-6 my-6 p-6 w-12/12 md:w-3/12 h-80 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class=" ml-6 my-6 p-6 h-128 w-12/12 md:w-3/12 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
             <!-- card title -->
             <p class="font-semibold text-slate-600 mb-4 text-xl">Filters</p>
 
             <p class="border-t border-gray-300"></p>
 
-            <p class="font-semibold text-slate-500 mt-4 mb-4">Price Range</p>
+            <p class="font-semibold text-slate-500 mt-5 mb-5">Price Range</p>
 
 
             <Slider class="slider-blue" showTooltip="focus" tooltipPosition="bottom" v-model="value" :format="format" />
@@ -127,15 +128,36 @@
 
             <p class="border-b border-gray-300 mt-4"></p>
 
-            <p class="font-semibold text-slate-500 mt-4 mb-4">Categories</p>
+            <p class="font-semibold text-slate-500 mt-5 mb-5">Categories</p>
 
             <div class="flex items-center mb-4">
                 <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                 <label for="default-checkbox" class="ml-2 text-sm font-medium text-slate-500 dark:text-gray-300">Vegan</label>
             </div>
+            <div class="flex items-center mb-4">
+                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="checked-checkbox" class="ml-2 text-sm font-medium text-slate-500 dark:text-gray-300">Primal</label>
+            </div>
+
+            <div class="flex items-center mb-4">
+                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="checked-checkbox" class="ml-2 text-sm font-medium text-slate-500 dark:text-gray-300">Whole 30</label>
+            </div>
+            <div class="flex items-center mb-4">
+                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="checked-checkbox" class="ml-2 text-sm font-medium text-slate-500 dark:text-gray-300">Gluten free</label>
+            </div>
+            <div class="flex items-center mb-4">
+                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="checked-checkbox" class="ml-2 text-sm font-medium text-slate-500 dark:text-gray-300">Diary free</label>
+            </div>
+            <div class="flex items-center mb-4">
+                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="checked-checkbox" class="ml-2 text-sm font-medium text-slate-500 dark:text-gray-300">Paleolithic</label>
+            </div>
             <div class="flex items-center">
                 <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                <label for="checked-checkbox" class="ml-2 text-sm font-medium text-slate-500 dark:text-gray-300">Vegetarian</label>
+                <label for="checked-checkbox" class="ml-2 text-sm font-medium text-slate-500 dark:text-gray-300">Primal</label>
             </div>
         </div>
 
