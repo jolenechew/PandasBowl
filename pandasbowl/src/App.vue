@@ -9,13 +9,14 @@
     },
     data() {
       return {
-        loggedIn: null
+        loggedIn: localStorage.getItem('token')
       }
     },
     created (){
       this.emitter.on('loggedIn', (evt) => {
         this.loggedIn = evt.eventContent;
       })
+      
     }
   }
 </script>
