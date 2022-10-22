@@ -14,12 +14,13 @@
                 username: this.username,
                 password: this.password
             }});
-            console.log(response)
 
             localStorage.setItem('token', response.data.access_token);
-            this.emitMyEvent();
+            this.emitSignIn();
+
+            this.$router.push('/marketplace');
           },
-          emitMyEvent() {
+          emitSignIn() {
               this.emitter.emit('loggedIn', {'eventContent': localStorage.getItem('token')})
           }
       }

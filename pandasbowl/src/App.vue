@@ -9,14 +9,13 @@
     },
     data() {
       return {
-        loggedIn: localStorage.getItem('token')
+        isLoggedIn: localStorage.getItem('token')
       }
     },
-    created (){
+    created(){
       this.emitter.on('loggedIn', (evt) => {
-        this.loggedIn = evt.eventContent;
+        this.isLoggedIn = evt.eventContent;
       })
-      
     }
   }
 </script>
@@ -24,7 +23,7 @@
 <template>
   <fragment>
 
-    <SignedInNavBar v-if="loggedIn"/>
+    <SignedInNavBar v-if="isLoggedIn"/>
     <Navbar v-else/>
     <router-view/>
   </fragment>

@@ -109,7 +109,7 @@
          class="md:flex flex-row"
       >
         <!-- card -->
-        <div class=" mx-6 my-4 p-6 w-12/12 md:w-3/12 h-80 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class=" mx-6 my-6 p-6 w-12/12 md:w-3/12 h-80 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
             <!-- card title -->
             <p class="font-semibold text-slate-600 mb-4 text-xl">Filters</p>
 
