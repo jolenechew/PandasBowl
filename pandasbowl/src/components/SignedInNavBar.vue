@@ -6,7 +6,7 @@
 
     function clearLocalStorage(){
         localStorage.clear();
-        window.location.reload();
+        window.location.assign("/");
     }
     
 </script>
@@ -44,9 +44,9 @@
                             </svg>
                         </div>
                         <div class="mt-2 py-2 w-48 bg-white rounded-lg shadow-xl absolute top-12 right-2 z-50" :class="{hidden: showProfile}">
-                            <router-link to="/" class="block px-4 py-2 text-gray-800 hover:bg-blue-500 hover:text-white" @click="showProfile = !showProfile">Profile</router-link>
-                            <router-link to="/" class="block px-4 py-2 text-gray-800 hover:bg-blue-500 hover:text-white" @click="showProfile = !showProfile">My Listing</router-link>
-                            <router-link to="/" class="block px-4 py-2 text-gray-800 hover:bg-blue-500 hover:text-white border-b-2" @click="showProfile = !showProfile">My Orders</router-link>
+                            <router-link to="/profile" class="block px-4 py-2 text-gray-800 hover:bg-blue-500 hover:text-white" @click="showProfile = !showProfile">Profile</router-link>
+                            <router-link to="/myListings" class="block px-4 py-2 text-gray-800 hover:bg-blue-500 hover:text-white" @click="showProfile = !showProfile">My Listing</router-link>
+                            <router-link to="/myOrders" class="block px-4 py-2 text-gray-800 hover:bg-blue-500 hover:text-white border-b-2" @click="showProfile = !showProfile">My Orders</router-link>
                             <div class="block px-4 py-2 text-gray-800 hover:bg-blue-500 hover:text-white" @click="showProfile = !showProfile; clearLocalStorage();">Sign Out</div>
                         </div>
                     </div>
