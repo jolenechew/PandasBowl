@@ -6,15 +6,11 @@
     components:{
       FooterComponent,
     },
-     async created(){
-      const response = await axios.get('fooditems/userlist', {
-        headers: {
-          Authorization: 'Bearer ' + localStorage.getItem('token')
-        }
-      });
+    async created(){
+      const response = await axios.get('fooditems/userlist');
 
       console.log(response);
-    }
+    },
   }
 </script>
 

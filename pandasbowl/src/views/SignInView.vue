@@ -1,5 +1,5 @@
 <script>
-  import axios from 'axios'
+  import axios from 'axios';
 
   export default{
       data(){
@@ -17,6 +17,10 @@
             console.log(response)
 
             localStorage.setItem('token', response.data.access_token);
+            this.emitMyEvent();
+          },
+          emitMyEvent() {
+              this.emitter.emit('loggedIn', {'eventContent': localStorage.getItem('token')})
           }
       }
   }

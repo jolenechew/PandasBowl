@@ -18,6 +18,7 @@
     "core-js": "^3.8.3",
     "daisyui": "^2.31.0",
     "flowbite": "^1.5.3",
+    "mitt": "^3.0.0",
     "tw-elements": "^1.0.0-alpha12",
     "vue": "^3.2.41",
     "vue-range-slider": "^0.6.0",
