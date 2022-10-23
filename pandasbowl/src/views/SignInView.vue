@@ -28,9 +28,9 @@
 </script>
 
 <template>
-  <section class="bg-gray-50 dark:bg-gray-900">
+  <section class="bg-gray-50 dark:bg-gray-900 w-full h-screen">
   <div class="flex flex-col items-center justify-center">
-      <a href="#" class="mt-10 flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+      <a href="#" class="mt-20 flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
           <img class="w-36 h-36 mr-2 rounded-full" src="../assets/pandasBowlLogo.jpg" alt="logo">
       </a>
       <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700 md:mb-10">

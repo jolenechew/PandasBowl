@@ -33,7 +33,7 @@
           </svg>
         </div>
       </section>
-      <section class="relative py-8 bg-gray-300">
+      <section class="relative py-20 bg-gray-300">
         <div class="container mx-auto px-4">
           <div
             class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg -mt-64"
