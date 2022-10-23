@@ -7,7 +7,9 @@
       FooterComponent,
     },
     async created(){
-      const response = await axios.get('fooditems/userlist');
+      const response = await axios.get('fooditems/userlist', {headers:{
+        Authorization: 'Bearer ' + localStorage.getItem('token')
+      }});
 
       console.log(response);
     },
