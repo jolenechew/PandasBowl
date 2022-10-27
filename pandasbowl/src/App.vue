@@ -15,6 +15,7 @@
     created(){
       this.emitter.on('loggedIn', (evt) => {
         this.isLoggedIn = evt.eventContent;
+        
       })
     }
   }

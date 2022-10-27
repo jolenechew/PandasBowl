@@ -30,7 +30,7 @@
                             class="relative inline-block px-3 py-1 font-semibold text-red-900 leading-tight">
                             <span aria-hidden
                                 class="absolute inset-0 bg-red-200 opacity-50 rounded-full"></span>
-                            <span class="relative">Cancelled</span>
+                            <span class="relative">Payment Failed</span>
                         </span>
                     </td>
                     <td class="py-4 px-12">
@@ -48,7 +48,7 @@
                         <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
                             <span aria-hidden
                                 class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-                        <span class="relative">Delivered</span>
+                            <span class="relative">Payment Success</span>
                         </span>
                     </td>
                     <td class="py-4 px-12">
@@ -63,11 +63,10 @@
                         Magic Mouse 2
                     </th>
                     <td class="py-4 px-6">
-                        <span
-                            class="relative inline-block px-3 py-1 font-semibold text-blue-900 leading-tight">
+                        <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
                             <span aria-hidden
-                                class="absolute inset-0 bg-blue-200 opacity-50 rounded-full"></span>
-                            <span class="relative">Shipping</span>
+                                class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
+                            <span class="relative">Payment Success</span>
                         </span>
                     </td>
                     <td class="py-4 px-12">

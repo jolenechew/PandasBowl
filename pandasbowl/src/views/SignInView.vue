@@ -17,8 +17,11 @@
 
             localStorage.setItem('token', response.data.access_token);
             this.emitSignIn();
-
-            this.$router.push('/marketplace');
+            this.route();
+          },
+          async route(){
+              await this.$router.push('/marketplace');
+              this.$router.go();
           },
           emitSignIn() {
               this.emitter.emit('loggedIn', {'eventContent': localStorage.getItem('token')})
