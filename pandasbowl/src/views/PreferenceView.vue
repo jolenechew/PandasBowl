@@ -1,25 +1,52 @@
 <template>
     <section class="bg-gray-50 dark:bg-gray-900 pb-10 pt-10">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="lg:text-center">
-                <p class="mt-2 text-3xl font-bold leading-8 tracking-tight text-white sm:text-4xl ">Preferences</p>
-                <p class="mt-4 max-w-2xl text-xl text-slate-500 lg:mx-auto">Our main goal is to customise the recipes and food you see here according to your preference. Please choose the diets that you would prefer seeing</p>
+            <div class="hero min-h-screen">
+                <div class="hero-content text-center">
+                    <div class="max-w-md">
+                    <h1 class="text-5xl font-bold">Preferences</h1>
+                    <p class="py-6">Please select your diet types so as to get customised results tailored to your preference.</p>
+                    <!--is there any way to ensure that it does not show the bottom of the navigated page?-->
+                    <!--button navigates to diet options-->
+                    <a href="#select"><button class="btn btn-info">LET'S GO</button></a>
+                    &nbsp;
+                    <!--button navigates back to home page-->
+                    <router-link to="/"><button class="btn btn-error">SKIP</button></router-link>
+                    </div>
+                </div>
             </div>
 
-            <div class="mt-10">
-                <dl class="space-y-10 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10 md:space-y-0">
-                <div v-for="feature in features" :key="feature.name" class="relative">
-                    <dt>
-                    <div class="absolute flex h-12 w-12 items-center justify-center rounded-md bg-indigo-500 text-white">
-                        <component :is="feature.icon" class="h-6 w-6" aria-hidden="true" />
-                    </div>
-                    <p class="ml-16 text-lg font-medium leading-6 text-gray-900">{{ feature.name }}</p>
-                    </dt>
-                    <dd class="mt-2 ml-16 text-base text-gray-500">{{ feature.description }}</dd>
+            <!--diet type options (checkbox)-->
+            <div class="flex flex-col border-opacity-50 pt-0" id="select">
+                <div class="grid h-20 card bg-base-300 rounded-box place-items-center">
+                    <label for="vegan"><input type="checkbox" name="radio-1 " id="vegan" class="checkbox checkbox-accent"/> &nbsp; Vegan</label>
                 </div>
-                </dl>
+                <br/>
+                <div class="grid h-20 card bg-base-300 rounded-box place-items-center">
+                    <label for="vegetarian"><input type="checkbox" name="radio-2" id="vegetarian" class="checkbox checkbox-accent"/> &nbsp; Vegetarian</label>
+                </div>
+                <br/>
+                <div class="grid h-20 card bg-base-300 rounded-box place-items-center">
+                    <label for="lowcarb"><input type="checkbox" name="radio-3" id="lowcarb" class="checkbox checkbox-accent"/> &nbsp; Low-carb</label>
+                </div>
+                <br/>
+                <div class="grid h-20 card bg-base-300 rounded-box place-items-center">
+                    <label for="dairyfree"><input type="checkbox" name="radio-4" id="dairyfree" class="checkbox checkbox-accent"/> &nbsp; Dairy-free</label>
+                </div>
+                <br/>
+                <div class="grid h-20 card bg-base-300 rounded-box place-items-center">
+                    <label for="glutenfree"><input type="checkbox" name="radio-5" id="glutenfree" class="checkbox checkbox-accent"/> &nbsp; Gluten-free</label>
+                </div>
+            </div>
+            <br/><br/>
+            <!--to lead back to homepage (for now)-->
+            <div class="place-items-center hero">
+                <router-link to="/">
+                    <button class="btn btn-success">FINISH</button>
+                </router-link>
             </div>
         </div>
+
 
     </section>
 </template>

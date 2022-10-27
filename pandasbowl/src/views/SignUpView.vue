@@ -37,6 +37,7 @@
                             <label for="terms" class="font-light text-gray-500 dark:text-gray-300">I accept the <a class="font-medium text-primary-600 hover:underline dark:text-primary-500" href="#">Terms and Conditions</a></label>
                         </div>
                     </div>
+                    <br/>
                     <router-link to="/preference">
                         <button type="submit" class="w-full text-slate-400 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-[#FFF8EA] hover:bg-orange-200">Create an account</button>
                     </router-link>

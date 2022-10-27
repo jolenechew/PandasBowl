@@ -5,6 +5,9 @@ import SignInView from '../views/SignInView'
 import SignUpView from '../views/SignUpView'
 import MarketplaceView from '../views/MarketplaceView'
 import PreferenceView from '../views/PreferenceView'
+import PaymentView from '../views/PaymentView'
+import SuccessView from '../views/SuccessView'
+import FailureView from '../views/FailureView'
 
 const routes = [
   {
@@ -36,6 +39,21 @@ const routes = [
     path: '/preference',
     name: 'preference',
     component: PreferenceView
+  },
+  {
+    path:'/payment',
+    name:'payment',
+    component:PaymentView
+  },
+  {
+    path:'/success',
+    name:'success',
+    component:SuccessView
+  },
+  {
+    path:'/failure',
+    name:'failure',
+    component:FailureView
   }
 ]
 

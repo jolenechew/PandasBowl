@@ -1,5 +1,6 @@
 <script setup>
   import FooterComponent from '../components/FooterComponent.vue';
+  
 </script>
 
 <template>
@@ -151,16 +152,17 @@
     <div class="card-body">
       <h2 class="card-title text-black">
         Caesar Salad
-        <div class="badge badge-accent">Marketplace</div>
+        <div class="badge badge-accent text-white">Marketplace</div>
       </h2>
       <p class="text-black">This Caesar salad recipe is guaranteed to impress dinner party guests! It's topped with homemade croutons, crisp veggies, and a rich, tangy dressing.</p>
       <div class="card-actions justify-end">
         <div class="badge badge-secondary badge-outline">Vegetarian</div> 
         <div class="badge badge-error badge-outline">On Sale</div>
+        <router-link to="/payment"><button class="btn btn-primary">BUY NOW</button></router-link>
       </div>
-      <div class="card-actions justify-end">
+      <!-- <div class="card-actions justify-end">
         <router-link to="/marketplace" class="menu-items font-sans"><button class="btn btn-primary">Buy Now</button></router-link>
-      </div>
+      </div> -->
     </div>
   </div>
 
@@ -185,7 +187,7 @@
     <div class="card-body">
       <h2 class="card-title text-black">
         Keto Vanilla Cupcakes
-        <p class="badge badge-md badge-accent">Marketplace</p>
+        <p class="badge badge-md badge-accent text-white">Marketplace</p>
         <p class="badge badge-md badge-secondary">Recipe</p>
       </h2>
       <p class="text-black">These cupcakes are super easy to make and the texture is light, fluffy, and melt-in-your-mouth good.</p>
@@ -193,9 +195,9 @@
         <div class="badge badge-primary badge-outline">Keto</div> 
         <div class="badge badge-error badge-outline">On Sale</div>
       </div>
-      <div class="card-actions justify-end">
+      <!-- <div class="card-actions justify-end">
         <router-link to="/marketplace" class="menu-items font-sans"><button class="btn btn-primary">Buy Now</button></router-link>
-      </div>
+      </div> -->
     </div>
   </div>
 
