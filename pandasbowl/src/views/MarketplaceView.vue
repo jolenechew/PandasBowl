@@ -1,5 +1,9 @@
 <script>
   import Slider from '@vueform/slider'
+  import {ref} from "vue";
+
+  const page = ref(1);
+  const perPage = 12;
 
   export default {
     components: {
@@ -96,7 +100,30 @@
                   price:'25.00',
                   src:require('../assets/img/shop/12.jpg')
               }
-          ]
+        ],
+      }
+    },
+    methods: {
+      nextPage(){
+        if (page.value !== Math.ceil(this.products.length / perPage)) {
+          page.value += 1;
+        }
+      },
+      backPage(){
+        if (page.value !== 1) {
+          page.value -= 1;
+        }
+      },
+      goToPage(numPage){
+        page.value = numPage;
+      }
+    },
+    computed:{
+      paginatedData() {
+        return this.products.slice((page.value - 1) * perPage, page.value * perPage)
+      },
+      currentPage(){
+        return page.value
       }
     }
   }
@@ -189,7 +216,7 @@
 
             <div class="ml-2 flex flex-row justify-between">
               <div class="mt-6 text-xs">
-                Showing 1-12 of 200 products
+                Showing {{(currentPage-1)*12+1}}-{{currentPage*12}} of 200 products
               </div>
 
               <div class="mb-3 md:w-60">
@@ -222,7 +249,7 @@
             <body class="antialiased text-gray-900 font-sans p-6">
               <div class="container mx-auto">
                 <div class="flex flex-wrap -mx-4" >
-                  <div class="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4"  :key="product.id" v-for="product in products">
+                  <div class="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4"  :key="product.id" v-for="product in paginatedData">
                     <a href="" class="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden">
                       <div class="relative pb-48 overflow-hidden">
                         <img class="absolute inset-0 h-full w-full object-cover" src="https://images.unsplash.com/photo-1475855581690-80accde3ae2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="">
@@ -244,14 +271,14 @@
             <div class="flex flex-row justify-between">
               
               <!-- Previous Button -->
-              <a href="#" class="inline-flex items-center py-2 px-4 mr-3 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+              <button @click="backPage" class="inline-flex items-center py-2 px-4 mr-3 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                 <svg aria-hidden="true" class="mr-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
                 Previous
-              </a>
-              <a href="#" class="inline-flex items-center py-2 px-4 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+              </button>
+              <button @click="nextPage" class="inline-flex items-center py-2 px-4 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                 Next
                 <svg aria-hidden="true" class="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-              </a>
+              </button>
 
             </div>
         </div>
