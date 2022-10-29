@@ -1,6 +1,19 @@
-<script setup>
+<script>
   import FooterComponent from '../components/FooterComponent.vue';
-  
+
+  import axios from "axios";
+
+  export default{
+    components:{
+      FooterComponent,
+    },
+    async created(){
+      const response = await axios.get('fooditems/userlist');
+
+      console.log(response);
+    },
+  }
+
 </script>
 <template>
   <div
@@ -8,7 +21,7 @@
   class="carousel slide carousel-fade relative h-fit"
   data-bs-ride="carousel"
 >
-  <div class="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4 h-fit">
+<div class="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4 h-fit">
     <button
       type="button"
       data-bs-target="#carouselExampleCrossfade"
@@ -74,7 +87,7 @@
 </div>
 
 <!--made the text of contrasting colours to look a bit nicer-->
-<section class="bg-white py-8 bg-[#C8DBBE]">
+<section class="bg-white border-b py-8 bg-[#C8DBBE]">
       <div class="container max-w-6xl mx-auto">
         <div class="w-full mb-4">
           <div class="h-1 gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
@@ -89,30 +102,30 @@
               <br />
               <br />
 
-              <!-- Images from:
+                  <!-- Images from:
 
-              <a class="text-pink-500 underline" href="https://undraw.co/">undraw.co</a> -->
-            </p>
-          </div>
-          <div class="w-full sm:w-1/2 p-6">
-            <img src="../assets/RoastedCauliflowerSalad.webp" class="rounded-lg h-128 w-full">
-          </div>
-        </div>
-        <hr class="my-8 h-px bg-gray-200 border-0 dark:bg-gray-700">
-        <div class="flex flex-wrap flex-col-reverse sm:flex-row pt-10 pb-10">
-          <div class="w-full sm:w-1/2 p-6 mt-6">
-            <img src="../assets/RoastedCauliflowerSalad.webp" class="rounded-lg h-128 w-full">
-          </div>
-          <div class="w-full sm:w-1/2 p-6 mt-6">
-            <div class="align-middle">
-              <h3 class="text-6xl text-white font-bold mb-3 tracking-tight pt-10">
-                Sign up as a customer! <span class="text-black">Why you ask?</span>
-              </h3>
-              <p class="text-gray-600 mb-8 text-lg">
-                It's so difficult to get recipes that are suited to the million different diet types out there. Fret not! We do the job for you so you can just focus on cooking and supporting local businesses.
-                <br />
-                <br />
-                <!-- Images from:
+                  <a class="text-pink-500 underline" href="https://undraw.co/">undraw.co</a> -->
+                </p>
+              </div>
+              <div class="w-full sm:w-1/2 p-6">
+                <img src="../assets/RoastedCauliflowerSalad.webp" class="rounded-lg h-128 w-full">
+              </div>
+            </div>
+            <hr class="my-8 h-px bg-gray-200 border-0 dark:bg-gray-700">
+            <div class="flex flex-wrap flex-col-reverse sm:flex-row pt-10 pb-10">
+              <div class="w-full sm:w-1/2 p-6 mt-6">
+                <img src="../assets/RoastedCauliflowerSalad.webp" class="rounded-lg h-128 w-full">
+              </div>
+              <div class="w-full sm:w-1/2 p-6 mt-6">
+                <div class="align-middle">
+                  <h3 class="text-6xl text-white font-bold mb-3 tracking-tight pt-10">
+                    Sign up as a customer! <span class="text-black">Why you ask?</span>
+                  </h3>
+                  <p class="text-gray-600 mb-8 text-lg">
+                    It's so difficult to get recipes that are suited to the million different diet types out there. Fret not! We do the job for you so you can just focus on cooking and supporting local businesses.
+                    <br />
+                    <br />
+                    <!-- Images from:
 
                 <a class="text-pink-500 underline" href="https://undraw.co/">undraw.co</a> -->
               </p>
@@ -120,7 +133,6 @@
           </div>
         </div>
       </div>
-      <hr class="my-8 h-px w-5/6 place-content-center bg-gray-200 border-0 dark:bg-gray-700">
     </section>
     <!--added top recipes header before cards-->
   <div class="p-10 pb-0 text-xl grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-5 bg-[#C8DBBE] text-black">Top Recipes &hearts;</div>
@@ -145,7 +157,7 @@
       </div> -->
     </div>
   </div>
-
+</div>
     <!--Card 2-->
     <div class="card w-30 bg-white shadow-xl">
     <figure><img class="w-full" src="../assets/foodCarouselTwo.jpeg" /></figure>
@@ -192,11 +204,11 @@
       <div class="card-actions justify-end">
         <div class="badge badge-accent badge-outline">Vegan</div> 
       </div>
-    </div>
-  </div>
-  </div>
+      </div>
+      </div>
 
-<FooterComponent></FooterComponent>
+    <FooterComponent></FooterComponent>
+  </fragment>
 </template>
 
 <style scoped>

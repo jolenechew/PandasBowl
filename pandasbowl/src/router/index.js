@@ -8,6 +8,9 @@ import PreferenceView from '../views/PreferenceView'
 import PaymentView from '../views/PaymentView'
 import SuccessView from '../views/SuccessView'
 import FailureView from '../views/FailureView'
+import ProfileView from '../views/ProfileView'
+import MyListingView from '../views/MyListingView'
+import MyOrderView from '../views/MyOrderView'
 
 const routes = [
   {
@@ -54,6 +57,21 @@ const routes = [
     path:'/failure',
     name:'failure',
     component:FailureView
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: ProfileView
+  },
+  {
+    path: '/myListings',
+    name: 'myListings',
+    component: MyListingView
+  },
+  {
+    path: '/myOrders',
+    name: 'myOrders',
+    component: MyOrderView
   }
 ]
 
