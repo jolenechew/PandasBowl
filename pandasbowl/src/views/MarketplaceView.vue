@@ -209,7 +209,7 @@
                           <p class="mt-1 text-sm">Cras justo odio, dapibus ac facilisis in.</p>
                           <h2 class="mt-2 mb-2  font-bold">Price: ${{product.price.toFixed(1)}}</h2>
                           <div class="mt-2 flex items-center">
-                            <button type="button" class="focus:outline-none text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-8 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-600 dark:focus:ring-green-800">Read More</button>
+                            <button type="button" class="focus:outline-none text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-8 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-600 dark:focus:ring-green-800">Purchase Now</button>
                           </div>
                         </div>
                       </div>
