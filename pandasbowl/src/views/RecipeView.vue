@@ -109,7 +109,6 @@ export default {
             }
 
             if (this.categories.length || this.search.trim().length) {
-                console.log("here");
                 for(var category of this.categories){
                     for(var item of output){
                         if(item.diet === category){
