@@ -24,7 +24,7 @@
                         <!-- menu -->
                         <div class="hidden md:flex items-center space-x-1">
                             <router-link to="/" class="menu-items font-sans">Home</router-link>
-                            <router-link to="/" class="menu-items font-sans">Recipes</router-link>
+                            <router-link to="/recipe" class="menu-items font-sans">Recipes</router-link>
                             <router-link to="/marketplace" class="menu-items font-sans">Marketplace</router-link>
                         </div>
                     </div>
