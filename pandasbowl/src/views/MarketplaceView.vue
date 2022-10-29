@@ -17,89 +17,30 @@
           decimals: 2
         },
         products:[
-              {
-                  id:1,
-                  name:'BLACK TEE',
-                  type:'Jackets',
-                  price:'18.00',
-                  src:require('../assets/img/shop/1.jpg')
-              },
-              {
-                  id:2,
-                  name:'WHITE TEE',
-                  type:'Polo',
-                  price:'40.00',
-                  src:require('../assets/img/shop/2.jpg')
-              },
-              {
-                  id:3,
-                  name:'Zara limited...',
-                  type:'Denim',
-                  price:'25.00',
-                  src:require('../assets/img/shop/3.jpg')
-              },
-              {
-                  id:4,
-                  name:'SKULL TEE',
-                  type:'Jackets',
-                  price:'30.00',
-                  src:require('../assets/img/shop/4.jpg')
-              },
-              {
-                  id:5,
-                  name:'MANGO WINTER',
-                  type:'Sweaters',
-                  price:'50.00',
-                  src:require('../assets/img/shop/5.jpg')
-              },
-              {
-                  id:6,
-                  name:'SHIRT',
-                  type:'Denim',
-                  price:'34.00',
-                  src:require('../assets/img/shop/6.jpg')
-              },
-              {
-                  id:7,
-                  name:'TRUCKER JACKET',
-                  type:'Jackets',
-                  price:'38.00',
-                  src:require('../assets/img/shop/7.jpg')
-              },
-              {
-                  id:8,
-                  name:'COATS',
-                  type:'Jackets',
-                  price:'25.00',
-                  src:require('../assets/img/shop/8.jpg')
-              },{
-                  id:9,
-                  name:'MANGO WINTER',
-                  type:'Sweaters',
-                  price:'50.00',
-                  src:require('../assets/img/shop/9.jpg')
-              },
-              {
-                  id:10,
-                  name:'SHIRT',
-                  type:'Denim',
-                  price:'34.00',
-                  src:require('../assets/img/shop/10.jpg')
-              },
-              {
-                  id:11,
-                  name:'TRUCKER JACKET',
-                  type:'Jackets',
-                  price:'38.00',
-                  src:require('../assets/img/shop/11.jpg')
-              },
-              {
-                  id:12,
-                  name:'COATS',
-                  type:'Jackets',
-                  price:'25.00',
-                  src:require('../assets/img/shop/12.jpg')
-              }
+            {id: 1,foodName: "Spaghetti",diet: "Vegan" ,image: "https://www.onceuponachef.com/images/2019/09/Spaghetti-and-Meatballs.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ", instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
+            {id: 2,foodName: "Baked Rice", diet: "Primal",image:"https://www.dopenkitchen.com.sg/wp-content/uploads/2020/06/salmonbakedrice-500x500.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
+            {id: 3,foodName: "Fried Noodles", diet: "Vegan",image: "https://lh6.googleusercontent.com/DeHsaiZNjMgQ7KOMqu5BzSteUsVKf0obfPMqDtG16slGzEw397kdedJ9QB-6bZfMUQoLoYzvX0FLnzdJfKt8dxUOxd9J35c07xxJF6q1s6isM1YyiJOMj7nRERhbiXg8qQ96ZB6w=s0",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
+            {id: 4,foodName: "Fried Rice", diet: "Whole 30",image: "https://www.jessicagavin.com/wp-content/uploads/2018/09/fried-rice-8-1200.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
+            {id: 5,foodName: "Cream Spaghetti", diet: "Gluten free",image: "https://www.errenskitchen.com/wp-content/uploads/2014/07/Creamy-Mushroom-Spaghetti-1-of-1-5.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
+            {id: 6,foodName: "Beef Wellington", diet: "Dairy free",image: "https://grillmomma.com/wp-content/uploads/2020/12/IMG_1986_jpg-3-1080x1440.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
+            {id: 7,foodName: "Chicken Rice", diet: "Paleolithic",image: "https://singaporelocalfavourites.com/wp-content/uploads/2017/11/singapore-hainanese-roasted-chicken-rice.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
+            {id: 8,foodName: "Mac & Cheese", diet: "Gluten free",image: "https://www.allrecipes.com/thmb/CanMXBeN-9DZyRSzDxLAoy0w-t8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/238691-Simple-Macaroni-And-Cheese-mfs_006-f7f521c65f894aef85e17bc9125c2c4a.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
+            {id: 9,foodName: "Grilled Basil Chicken",diet: "Vegan" ,image: "https://www.afamilyfeast.com/wp-content/uploads/2013/07/Grilled-Basil-Garlic-Chicken-2.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ", instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
+            {id: 10,foodName: "Basil Rice", diet: "Primal",image:"https://www.acouplecooks.com/wp-content/uploads/2021/08/Thai-Basil-Fried-Rice-001.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
+            {id: 11,foodName: "Miso Noodles", diet: "Vegan",image: "https://thefoodietakesflight.com/wp-content/uploads/2021/01/spicy-miso-noodles-11.png",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
+            {id: 12,foodName: "Green Bean Rice", diet: "Whole 30",image: " https://assets.kraftfoods.com/recipe_images/opendeploy/502979_1_1_retail-47e2fa2e30d36954a29be97dc27474d60309ae33_642x428.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
+            {id: 13,foodName: "Cantaloupe Gazpacho", diet: "Gluten free",image: "https://lepetiteats.com/wp-content/uploads/2018/08/IMG_0429.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
+            {id: 14,foodName: "Reuben Sandwich", diet: "Dairy free",image: "https://www.recipetineats.com/wp-content/uploads/2019/04/Reuben-Sandwich_8-copy.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
+            {id: 15,foodName: "Lemon Baked Tilapia", diet: "Paleolithic",image: "https://www.whiskaffair.com/wp-content/uploads/2020/08/Lemon-Garlic-Baked-Tilapia-2-3-1.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
+            {id: 16,foodName: "Tortilla Pizza", diet: "Gluten free",image: "https://bakeitwithlove.com/wp-content/uploads/2022/02/tortilla-pizza-sq.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
+            {id: 17,foodName: "Butter Chicken Rice",diet: "Vegan" ,image: "https://www.recipetineats.com/wp-content/uploads/2019/01/Butter-Chicken_5-SQ.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ", instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
+            {id: 18,foodName: "Fish in Foil", diet: "Primal",image:"https://www.allrecipes.com/thmb/4LHJn7qC2zzfypuZM8u-TEE6OaY=/960x960/filters:fill(auto,1)/3569458-4af971b8125842f2adb5c1a8f3457599.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
+            {id: 19,foodName: "Broccoli Chicken Divan ", diet: "Vegan",image: "https://thecozycook.com/wp-content/uploads/2021/04/Chicken-Divan-f.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
+            {id: 20,foodName: "Club Sandwich", diet: "Whole 30",image: "https://static.toiimg.com/thumb/83740315.cms?imgsize=361903&width=800&height=800",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
+            {id: 21,foodName: "French Dip Sandwich", diet: "Gluten free",image: "https://www.cookingclassy.com/wp-content/uploads/2017/10/slow-cooker-french-dip-sandwiches-4.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
+            {id: 22,foodName: "Honey Glazed Chicken", diet: "Dairy free",image: "https://natashaskitchen.com/wp-content/uploads/2017/03/Baked-Honey-Glazed-Chicken-Drumsticks-2.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
+            {id: 23,foodName: "Chicken Livers", diet: "Paleolithic",image: "https://www.gannett-cdn.com/-mm-/eac05761eaeb85c15127d143c97d43b570273b01/c=0-303-4541-2869/local/-/media/2017/11/21/Louisville/Louisville/636468613690462085-GospelBirdChickenLivers.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
+            {id: 24,foodName: "Sirloin Steak", diet: "Gluten free",image: "https://www.wholesomeyum.com/wp-content/uploads/2019/05/wholesomeyum-How-To-Cook-Top-Sirloin-Steak-In-The-Oven-13.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
         ],
       }
     },
@@ -124,7 +65,7 @@
       },
       currentPage(){
         return page.value
-      }
+      },
     }
   }
 </script>
@@ -249,16 +190,16 @@
             <body class="antialiased text-gray-900 font-sans p-6">
               <div class="container mx-auto">
                 <div class="flex flex-wrap -mx-4" >
-                  <div class="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4"  :key="product.id" v-for="product in paginatedData">
+                  <div class="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4" :key="product.id" v-for="product in paginatedData">
                     <a href="" class="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden">
                       <div class="relative pb-48 overflow-hidden">
-                        <img class="absolute inset-0 h-full w-full object-cover" src="https://images.unsplash.com/photo-1475855581690-80accde3ae2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="">
+                        <img class="absolute inset-0 h-full w-full object-cover" :src="product.image" alt="">
                       </div>
                       <div class="p-4">
-                        <h2 class="mt-2 mb-2  font-bold">Purus Ullamcorper Inceptos Nibh</h2>
+                        <h2 class="mt-2 mb-2  font-bold">{{product.foodName}}</h2>
                         <p class="text-sm">Cras justo odio, dapibus ac facilisis in.</p>
                         <div class="mt-3 flex items-center">
-                          <span class="text-sm font-semibold">ab</span>&nbsp;<span class="font-bold text-xl">45,00</span>&nbsp;<span class="text-sm font-semibold">€</span>
+                          <span class="text-lg font-semibold">$</span>&nbsp;<span class="font-bold text-lg">{{product.price.toFixed(1)}}</span>
                         </div>
                       </div>
                     </a>
@@ -282,8 +223,6 @@
 
             </div>
         </div>
-
-       
     </div>
   </div>
 </template>

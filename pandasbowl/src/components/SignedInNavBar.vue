@@ -65,7 +65,7 @@
         <!--  -->
         <!-- mobile menu -->
 
-        <div class="md:hidden bg-[rgba(253,245,237,255)]" >
+        <div class="md:hidden bg-[rgba(253,245,237,255)]" :class="{hidden: showMobileMenu}">
             <router-link to="/" class="block py-1 px-2 hover:text-black text-black-400" @click="showMobileMenu = !showMobileMenu">Home</router-link>
             <router-link to="/" class="block py-1 px-2 hover:text-black text-black-400" @click="showMobileMenu = !showMobileMenu">Recipes</router-link>
             <router-link to="/" class="block py-1 px-2 hover:text-black text-black-400" @click="showMobileMenu = !showMobileMenu">Marketplace</router-link>
