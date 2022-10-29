@@ -2,7 +2,6 @@
   import FooterComponent from '../components/FooterComponent.vue';
   
 </script>
-
 <template>
   <div
   id="carouselExampleCrossfade"
