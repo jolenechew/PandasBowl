@@ -16,6 +16,8 @@
           prefix: '< $',
           decimals: 2
         },
+        categoryList:['Vegan','Primal','Whole 30','Gluten free', 'Dairy free', 'Paleolithic'],
+        categories: [],
         products:[
             {id: 1,foodName: "Spaghetti",diet: "Vegan" ,image: "https://www.onceuponachef.com/images/2019/09/Spaghetti-and-Meatballs.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ", instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
             {id: 2,foodName: "Baked Rice", diet: "Primal",image:"https://www.dopenkitchen.com.sg/wp-content/uploads/2020/06/salmonbakedrice-500x500.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
@@ -29,23 +31,26 @@
             {id: 10,foodName: "Basil Rice", diet: "Primal",image:"https://www.acouplecooks.com/wp-content/uploads/2021/08/Thai-Basil-Fried-Rice-001.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
             {id: 11,foodName: "Miso Noodles", diet: "Vegan",image: "https://thefoodietakesflight.com/wp-content/uploads/2021/01/spicy-miso-noodles-11.png",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
             {id: 12,foodName: "Green Bean Rice", diet: "Whole 30",image: " https://assets.kraftfoods.com/recipe_images/opendeploy/502979_1_1_retail-47e2fa2e30d36954a29be97dc27474d60309ae33_642x428.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
-            {id: 13,foodName: "Cantaloupe Gazpacho", diet: "Gluten free",image: "https://lepetiteats.com/wp-content/uploads/2018/08/IMG_0429.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
+            {id: 13,foodName: "Cantaloupe soup", diet: "Gluten free",image: "https://lepetiteats.com/wp-content/uploads/2018/08/IMG_0429.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
             {id: 14,foodName: "Reuben Sandwich", diet: "Dairy free",image: "https://www.recipetineats.com/wp-content/uploads/2019/04/Reuben-Sandwich_8-copy.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
             {id: 15,foodName: "Lemon Baked Tilapia", diet: "Paleolithic",image: "https://www.whiskaffair.com/wp-content/uploads/2020/08/Lemon-Garlic-Baked-Tilapia-2-3-1.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
             {id: 16,foodName: "Tortilla Pizza", diet: "Gluten free",image: "https://bakeitwithlove.com/wp-content/uploads/2022/02/tortilla-pizza-sq.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
             {id: 17,foodName: "Butter Chicken Rice",diet: "Vegan" ,image: "https://www.recipetineats.com/wp-content/uploads/2019/01/Butter-Chicken_5-SQ.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ", instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
             {id: 18,foodName: "Fish in Foil", diet: "Primal",image:"https://www.allrecipes.com/thmb/4LHJn7qC2zzfypuZM8u-TEE6OaY=/960x960/filters:fill(auto,1)/3569458-4af971b8125842f2adb5c1a8f3457599.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
-            {id: 19,foodName: "Broccoli Chicken Divan ", diet: "Vegan",image: "https://thecozycook.com/wp-content/uploads/2021/04/Chicken-Divan-f.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
+            {id: 19,foodName: "Chicken Divan ", diet: "Vegan",image: "https://thecozycook.com/wp-content/uploads/2021/04/Chicken-Divan-f.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
             {id: 20,foodName: "Club Sandwich", diet: "Whole 30",image: "https://static.toiimg.com/thumb/83740315.cms?imgsize=361903&width=800&height=800",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
-            {id: 21,foodName: "French Dip Sandwich", diet: "Gluten free",image: "https://www.cookingclassy.com/wp-content/uploads/2017/10/slow-cooker-french-dip-sandwiches-4.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
-            {id: 22,foodName: "Honey Glazed Chicken", diet: "Dairy free",image: "https://natashaskitchen.com/wp-content/uploads/2017/03/Baked-Honey-Glazed-Chicken-Drumsticks-2.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
+            {id: 21,foodName: "French Sandwich", diet: "Gluten free",image: "https://www.cookingclassy.com/wp-content/uploads/2017/10/slow-cooker-french-dip-sandwiches-4.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
+            {id: 22,foodName: "Honey Chicken", diet: "Dairy free",image: "https://natashaskitchen.com/wp-content/uploads/2017/03/Baked-Honey-Glazed-Chicken-Drumsticks-2.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
             {id: 23,foodName: "Chicken Livers", diet: "Paleolithic",image: "https://www.gannett-cdn.com/-mm-/eac05761eaeb85c15127d143c97d43b570273b01/c=0-303-4541-2869/local/-/media/2017/11/21/Louisville/Louisville/636468613690462085-GospelBirdChickenLivers.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
             {id: 24,foodName: "Sirloin Steak", diet: "Gluten free",image: "https://www.wholesomeyum.com/wp-content/uploads/2019/05/wholesomeyum-How-To-Cook-Top-Sirloin-Steak-In-The-Oven-13.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
+            {id: 25,foodName: "Sirloin Steak", diet: "Gluten free",image: "https://www.wholesomeyum.com/wp-content/uploads/2019/05/wholesomeyum-How-To-Cook-Top-Sirloin-Steak-In-The-Oven-13.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
         ],
       }
     },
     methods: {
       nextPage(){
+        console.log(Math.ceil(this.products.length / perPage))
+        console.log(page.value)
         if (page.value !== Math.ceil(this.products.length / perPage)) {
           page.value += 1;
         }
@@ -98,34 +103,9 @@
 
             <p class="font-semibold text-slate-500 mt-5 mb-5">Categories</p>
 
-            <div class="flex items-center mb-4">
-                <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                <label for="default-checkbox" class="ml-2 text-sm font-medium text-slate-500 dark:text-gray-300">Vegan</label>
-            </div>
-            <div class="flex items-center mb-4">
-                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                <label for="checked-checkbox" class="ml-2 text-sm font-medium text-slate-500 dark:text-gray-300">Primal</label>
-            </div>
-
-            <div class="flex items-center mb-4">
-                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                <label for="checked-checkbox" class="ml-2 text-sm font-medium text-slate-500 dark:text-gray-300">Whole 30</label>
-            </div>
-            <div class="flex items-center mb-4">
-                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                <label for="checked-checkbox" class="ml-2 text-sm font-medium text-slate-500 dark:text-gray-300">Gluten free</label>
-            </div>
-            <div class="flex items-center mb-4">
-                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                <label for="checked-checkbox" class="ml-2 text-sm font-medium text-slate-500 dark:text-gray-300">Diary free</label>
-            </div>
-            <div class="flex items-center mb-4">
-                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                <label for="checked-checkbox" class="ml-2 text-sm font-medium text-slate-500 dark:text-gray-300">Paleolithic</label>
-            </div>
-            <div class="flex items-center">
-                <input id="checked-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                <label for="checked-checkbox" class="ml-2 text-sm font-medium text-slate-500 dark:text-gray-300">Primal</label>
+            <div class="flex items-center mb-4" v-for="filter in categoryList" :key="filter">
+                <input id="default-checkbox" type="checkbox" :value="filter" v-model="categories" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="default-checkbox" class="ml-2 text-sm font-medium text-slate-500 dark:text-gray-300">{{filter}}</label>
             </div>
         </div>
 
@@ -157,7 +137,7 @@
 
             <div class="ml-2 flex flex-row justify-between">
               <div class="mt-6 text-xs">
-                Showing {{(currentPage-1)*12+1}}-{{currentPage*12}} of 200 products
+                Showing {{(currentPage-1)*12+1}}-{{(currentPage*12 <= products.length) ? currentPage*12:products.length}} of {{products.length}} products
               </div>
 
               <div class="mb-3 md:w-60">
@@ -191,18 +171,21 @@
               <div class="container mx-auto">
                 <div class="flex flex-wrap -mx-4" >
                   <div class="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4" :key="product.id" v-for="product in paginatedData">
-                    <a href="" class="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden">
+                    <div class="c-card block bg-green-50 shadow-md hover:shadow-xl rounded-lg overflow-hidden">
                       <div class="relative pb-48 overflow-hidden">
                         <img class="absolute inset-0 h-full w-full object-cover" :src="product.image" alt="">
                       </div>
                       <div class="p-4">
-                        <h2 class="mt-2 mb-2  font-bold">{{product.foodName}}</h2>
-                        <p class="text-sm">Cras justo odio, dapibus ac facilisis in.</p>
-                        <div class="mt-3 flex items-center">
-                          <span class="text-lg font-semibold">$</span>&nbsp;<span class="font-bold text-lg">{{product.price.toFixed(1)}}</span>
+                        <div class="flex items-center">
+                          <span class="text-lg font-semibold"></span><span class="font-bold text-lg">{{product.foodName}}</span>
+                        </div>
+                        <p class="mt-1 text-sm">Cras justo odio, dapibus ac facilisis in.</p>
+                        <h2 class="mt-2 mb-2  font-bold">Price: ${{product.price.toFixed(1)}}</h2>
+                        <div class="mt-2 flex items-center">
+                          <button type="button" class="focus:outline-none text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-8 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-600 dark:focus:ring-green-800">Read More</button>
                         </div>
                       </div>
-                    </a>
+                    </div>
                   </div>
                 </div>
               </div>
