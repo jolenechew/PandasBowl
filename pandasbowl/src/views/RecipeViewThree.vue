@@ -1,5 +1,4 @@
 <script>
-  import Slider from '@vueform/slider'
   import {ref} from "vue";
 
   const page = ref(1);
@@ -7,11 +6,11 @@
 
   export default {
     components: {
-      Slider,
+
     },
     data() {
       return {
-        value: 100,
+        search: '',
         format: {
           prefix: '< $',
           decimals: 2
@@ -67,29 +66,27 @@
     computed:{
       searchAndFilteredList() {
 
-          var output = [];
+            var output = this.products;
+            var outputTwo = [];
 
-          if(this.categories.length == 0){
-            for(var item of this.products){
-                if(item.price < this.value){
-                    output.push(item);
+            if(this.categories.length == 0 && this.search.trim().length == 0){
+                return output;
+            }
+            
+            if (this.categories.length || this.search.trim().length) {
+                console.log("here");
+                for(var category of this.categories){
+                    for(var item of output){
+                        if(item.diet === category){
+                            outputTwo.push(item);
+                        }
+                    }
                 }
+
+                outputTwo = outputTwo.filter((recipe) => recipe.foodName.toLowerCase().includes(this.search.trim().toLowerCase()))
             }
 
-            return output;
-          }
-
-          if (this.categories.length) {
-              for(let category of this.categories){
-                  for(let item of this.products){
-                      if(item.diet === category && item.price < this.value){
-                          output.push(item);
-                      }
-                  }
-              }
-          }
-
-          return output;
+            return outputTwo;
       },
       paginatedData() {
         return this.searchAndFilteredList.slice((page.value - 1) * perPage, page.value * perPage)
@@ -109,23 +106,11 @@
       >
         <!-- Filter portion -->
         <!-- card -->
-        <div class=" ml-6 my-6 p-6 h-128 w-12/12 md:w-3/12 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div class=" ml-6 my-6 p-6 h-96 w-12/12 md:w-3/12 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
             <!-- card title -->
             <p class="font-semibold text-slate-600 mb-4 text-xl">Filters</p>
 
             <p class="border-t border-gray-300"></p>
-
-            <p class="font-semibold text-slate-500 mt-5 mb-5">Price Range</p>
-
-
-            <Slider class="slider-blue" showTooltip="focus" tooltipPosition="bottom" v-model="value" :format="format" />
-
-            <div class="flex justify-between">
-              <p class="font-semibold text-slate-600 text-l">$0</p>
-              <p class="font-semibold text-slate-600 text-l">$100</p>
-            </div>
-
-            <p class="border-b border-gray-300 mt-4"></p>
 
             <p class="font-semibold text-slate-500 mt-5 mb-5">Categories</p>
 
@@ -144,9 +129,9 @@
                 <li class="inline-flex items-center">
                   <a href="#" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" />
                     </svg>
-                    Marketplace
+                    Recipe
                   </a>
                 </li>
                 
@@ -162,31 +147,22 @@
 
 
             <div class="ml-2 flex flex-row justify-between">
-              <div class="mt-6 text-xs">
-                Showing {{(currentPage-1)*12+1}}-{{(currentPage*12 <= searchAndFilteredList.length) ? currentPage*12:searchAndFilteredList.length}} of {{searchAndFilteredList.length}} products
-              </div>
+                <!-- No of products that are being shown -->
+                <div class="mt-6 text-xs">
+                    Showing {{(currentPage-1)*12+1}}-{{(currentPage*12 <= searchAndFilteredList.length) ? currentPage*12:searchAndFilteredList.length}} of {{searchAndFilteredList.length}} products
+                </div>
 
-              <div class="mb-3 md:w-60">
-                  <select class="form-select appearance-none
-                    block
-                    w-full
-                    px-3
-                    py-2
-                    text-base
-                    font-normal
-                    text-gray-700
-                    bg-white bg-clip-padding bg-no-repeat
-                    border border-solid border-gray-300
-                    rounded
-                    transition
-                    ease-in-out
-                    m-0
-                    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
-                      <option selected>Default</option>
-                      <option value="1">Popularity</option>
-                      <option value="2">Price:Low to High</option>
-                      <option value="3">Price: High to Low</option>
-                  </select>
+                 <!-- Search bar -->
+                <div class="mb-3 md:w-96">
+                    <form class="flex items-center w-full">   
+                        <label for="simple-search" class="sr-only">Search</label>
+                        <div class="relative w-full">
+                            <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                                <svg aria-hidden="true" class="w-5 h-4 text-white-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
+                            </div>
+                            <input type="text" id="simple-search" v-model="search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search" required>
+                        </div>
+                    </form>
                 </div>
             </div>
             
@@ -207,9 +183,8 @@
                             <span class="text-lg font-semibold"></span><span class="font-bold text-lg">{{product.foodName}}</span>
                           </div>
                           <p class="mt-1 text-sm">Cras justo odio, dapibus ac facilisis in.</p>
-                          <h2 class="mt-2 mb-2  font-bold">Price: ${{product.price.toFixed(1)}}</h2>
                           <div class="mt-2 flex items-center">
-                            <button type="button" class="focus:outline-none text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-8 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-600 dark:focus:ring-green-800">Read More</button>
+                            <button type="button" class="focus:outline-none text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-8 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-600 dark:focus:ring-green-800">Go to recipe</button>
                           </div>
                         </div>
                       </div>
