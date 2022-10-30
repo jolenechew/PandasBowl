@@ -16,6 +16,9 @@
                 </div>
             </div>
 
+            <div class="hero-content text-center mb-8">
+                <h1 class="text-5xl font-bold">Select your dietary preferences!</h1>
+            </div>
             <!--diet type options (checkbox)-->
             <div class="flex flex-col border-opacity-50 pt-0" id="select">
                 <div class="grid h-20 card bg-base-300 rounded-box place-items-center">
@@ -41,7 +44,7 @@
             <br/><br/>
             <!--to lead back to homepage (for now)-->
             <div class="place-items-center hero">
-                <router-link to="/">
+                <router-link to="/login">
                     <button class="btn btn-success">FINISH</button>
                 </router-link>
             </div>
