@@ -30,8 +30,8 @@ export default {
           quantity: 1,
         },
       ],
-      successURL: 'http://localhost:8080/success',
-      cancelURL: 'http://localhost:8080/failure',
+      successURL: `${window.location.origin}/myOrders`,
+      cancelURL: `${window.location.origin}/failure`,
     };
   },
   methods: {

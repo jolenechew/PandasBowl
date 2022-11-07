@@ -1,92 +1,26 @@
 <script>
 
   export default {
-       data() {
+    data() {
       return {
+        search: '',
         showModal: true,
         value: 20,
         format: {
           prefix: '< $',
           decimals: 2
         },
-        products:[
-              {
-                  id:1,
-                  name:'BLACK TEE',
-                  type:'Jackets',
-                  price:'18.00',
-                  src:require('../assets/img/shop/1.jpg')
-              },
-              {
-                  id:2,
-                  name:'WHITE TEE',
-                  type:'Polo',
-                  price:'40.00',
-                  src:require('../assets/img/shop/2.jpg')
-              },
-              {
-                  id:3,
-                  name:'Zara limited...',
-                  type:'Denim',
-                  price:'25.00',
-                  src:require('../assets/img/shop/3.jpg')
-              },
-              {
-                  id:4,
-                  name:'SKULL TEE',
-                  type:'Jackets',
-                  price:'30.00',
-                  src:require('../assets/img/shop/4.jpg')
-              },
-              {
-                  id:5,
-                  name:'MANGO WINTER',
-                  type:'Sweaters',
-                  price:'50.00',
-                  src:require('../assets/img/shop/5.jpg')
-              },
-              {
-                  id:6,
-                  name:'SHIRT',
-                  type:'Denim',
-                  price:'34.00',
-                  src:require('../assets/img/shop/6.jpg')
-              },
-              {
-                  id:7,
-                  name:'TRUCKER JACKET',
-                  type:'Jackets',
-                  price:'38.00',
-                  src:require('../assets/img/shop/7.jpg')
-              },
-              {
-                  id:8,
-                  name:'COATS',
-                  type:'Jackets',
-                  price:'25.00',
-                  src:require('../assets/img/shop/8.jpg')
-              },{
-                  id:9,
-                  name:'MANGO WINTER',
-                  type:'Sweaters',
-                  price:'50.00',
-                  src:require('../assets/img/shop/9.jpg')
-              },
-              {
-                  id:10,
-                  name:'SHIRT',
-                  type:'Denim',
-                  price:'34.00',
-                  src:require('../assets/img/shop/10.jpg')
-              },
-              {
-                  id:11,
-                  name:'TRUCKER JACKET',
-                  type:'Jackets',
-                  price:'38.00',
-                  src:require('../assets/img/shop/11.jpg')
-              }
-          ]
+         products:[
+            {id: 1,foodName: "Spaghetti",diet: "Vegan" ,image: "https://www.onceuponachef.com/images/2019/09/Spaghetti-and-Meatballs.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ", instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 80.0, isRecipe: true},
+            {id: 2,foodName: "Baked Rice", diet: "Primal",image:"https://www.dopenkitchen.com.sg/wp-content/uploads/2020/06/salmonbakedrice-500x500.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 80.0, isRecipe: true},
+            {id: 3,foodName: "Fried Noodles", diet: "Vegan",image: "https://lh6.googleusercontent.com/DeHsaiZNjMgQ7KOMqu5BzSteUsVKf0obfPMqDtG16slGzEw397kdedJ9QB-6bZfMUQoLoYzvX0FLnzdJfKt8dxUOxd9J35c07xxJF6q1s6isM1YyiJOMj7nRERhbiXg8qQ96ZB6w=s0",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
+            {id: 4,foodName: "Fried Rice", diet: "Whole 30",image: "https://www.jessicagavin.com/wp-content/uploads/2018/09/fried-rice-8-1200.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 80.0, isRecipe: true},
+            {id: 5,foodName: "Cream Spaghetti", diet: "Gluten free",image: "https://www.errenskitchen.com/wp-content/uploads/2014/07/Creamy-Mushroom-Spaghetti-1-of-1-5.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
+            {id: 6,foodName: "Beef Wellington", diet: "Dairy free",image: "https://grillmomma.com/wp-content/uploads/2020/12/IMG_1986_jpg-3-1080x1440.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 80.0, isRecipe: true},
+            {id: 7,foodName: "Chicken Rice", diet: "Paleolithic",image: "https://singaporelocalfavourites.com/wp-content/uploads/2017/11/singapore-hainanese-roasted-chicken-rice.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
+            {id: 8,foodName: "Mac & Cheese", diet: "Gluten free",image: "https://www.allrecipes.com/thmb/CanMXBeN-9DZyRSzDxLAoy0w-t8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/238691-Simple-Macaroni-And-Cheese-mfs_006-f7f521c65f894aef85e17bc9125c2c4a.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
+            {id: 9,foodName: "Grilled Basil Chicken",diet: "Vegan" ,image: "https://www.afamilyfeast.com/wp-content/uploads/2013/07/Grilled-Basil-Garlic-Chicken-2.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ", instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
+        ],
       }
     },
     methods: {
@@ -94,6 +28,18 @@
             this.showModal = !this.showModal
         }
     },
+    computed:{
+      searchedList() {
+
+          var output = this.products;
+
+          if (this.search.trim().length) {
+              output = output.filter((recipe) => recipe.foodName.toLowerCase().includes(this.search.trim().toLowerCase()))
+          }
+
+          return output;
+      },
+    }
   }
 </script>
 
@@ -118,12 +64,8 @@
                         <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                             <svg aria-hidden="true" class="w-5 h-4 text-white-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
                         </div>
-                        <input type="text" id="simple-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search" required>
+                        <input type="text" id="simple-search" v-model="search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search" required>
                     </div>
-                    <button type="submit" class="p-2.5 ml-2 text-sm font-medium text-white bg-blue-500 rounded-lg border border-blue-500 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                        <span class="sr-only">Search</span>
-                    </button>
                 </form>
 
                 
@@ -138,7 +80,7 @@
                     
                     <!-- First card to add more cards -->
                   <div class="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4" @click="toggleModal()">
-                    <div class="c-card block bg-amber-50 hover:bg-amber-200 shadow-md hover:shadow-xl rounded-lg overflow-hidden ">
+                    <div class="c-card block bg-green-200 hover:bg-green-300 shadow-md hover:shadow-xl rounded-lg overflow-hidden ">
                       <div class="relative pb-48 overflow-hidden md:ml-36 ml-28 mt-32">
                         <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 24 24" class="absolute"><path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/></svg>
                       </div>
@@ -146,17 +88,19 @@
                   </div>
 
                   <!-- Every other card that comes thereafter -->
-                  <div class="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4"  :key="product.id" v-for="product in products">
+                  <div class="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4"  :key="product.id" v-for="product in searchedList">
                     <a href="" class="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden">
                       <div class="relative pb-48 overflow-hidden">
-                        <img class="absolute inset-0 h-full w-full object-cover" src="https://images.unsplash.com/photo-1475855581690-80accde3ae2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="">
+                        <img class="absolute inset-0 h-full w-full object-cover" :src="product.image" alt="">
                       </div>
                       <div class="p-4">
-                        <h2 class="mt-2 mb-2  font-bold">Purus Ullamcorper Inceptos Nibh</h2>
-                        <p class="text-sm">Cras justo odio, dapibus ac facilisis in.</p>
-                        <div class="mt-3 flex items-center">
-                          <span class="text-sm font-semibold">ab</span>&nbsp;<span class="font-bold text-xl">45,00</span>&nbsp;<span class="text-sm font-semibold">€</span>
-                        </div>
+                       <div class="flex items-center">
+                            <span class="text-lg font-semibold"></span><span class="font-bold text-lg">{{product.foodName}}</span>
+                          </div>
+                          <p class="mt-1 text-sm">Cras justo odio, dapibus ac facilisis in.</p>
+                          <div class="mt-2 flex items-center">
+                            <button type="button" class="focus:outline-none text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-8 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-600 dark:focus:ring-green-800">Edit listing</button>
+                          </div>
                       </div>
                     </a>
                   </div>
@@ -168,14 +112,14 @@
 
      <div class="fixed z-50 w-full sm:inset-0 h-modal sm:h-full" :class="{hidden: showModal}">
             <div class="w-full h-full fixed bg-black opacity-50"></div>
-            <div class="relative mt-12 ml-128 p-4 w-full max-w-md h-full md:h-auto">
+            <div class="relative mx-auto w-full max-w-md">
                 <!-- Modal content -->
                 <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                     <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" @click="toggleModal()">
                         <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                         <span class="sr-only">Close modal</span>
                     </button>
-                    <div class="py-6 px-6 lg:px-8">
+                    <div class="py-6 px-6 lg:px-8" style="margin-top:5vh">
                         <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Add a new food listing!</h3>
                         <form class="space-y-3" action="#">
                             <div>
@@ -188,12 +132,22 @@
                             </div>
                             <div>
                                 <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Ingredients:</label>
-                                <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>
+                                <textarea id="message" rows="3" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>
                             </div>
                             <div>
                                 <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Instructions:</label>
-                                <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>
+                                <textarea id="message" rows="3" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>
                             </div>
+                            <div class="flex justify-center items-center w-full">
+                              <label for="dropzone-file" class="flex flex-col justify-center items-center w-full h-18 bg-gray-50 rounded-lg border-2 border-gray-300 border-dashed cursor-pointer dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                                  <div class="flex flex-col justify-center items-center pt-5 pb-6">
+                                      <svg aria-hidden="true" class="mb-3 w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
+                                      <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+                                      <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                                  </div>
+                                  <input id="dropzone-file" type="file" class="hidden" />
+                              </label>
+                          </div> 
                             <div class="flex items-start">
                                 <div class="flex items-center h-5">
                                     <input id="remember" aria-describedby="remember" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" required="">

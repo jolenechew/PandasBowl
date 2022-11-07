@@ -11,6 +11,8 @@ import FailureView from '../views/FailureView'
 import ProfileView from '../views/ProfileView'
 import MyListingView from '../views/MyListingView'
 import MyOrderView from '../views/MyOrderView'
+import RecipeView from '../views/RecipeView'
+import FoodCardView from '../views/FoodCardView'
 
 const routes = [
   {
@@ -72,7 +74,17 @@ const routes = [
     path: '/myOrders',
     name: 'myOrders',
     component: MyOrderView
-  }
+  },
+  {
+    path: '/recipe',
+    name: 'recipe',
+    component: RecipeView
+  },
+  {
+    path: '/foodCardView',
+    name: 'foodCardView',
+    component: FoodCardView
+  },
 ]
 
 const router = createRouter({
