@@ -7,7 +7,7 @@
       :line-items="lineItems"
       :success-url="successURL"
       :cancel-url="cancelURL"
-      @loading="v => loading = v"   
+      @loading="v => loading = v"
     />
     <!--The load event is fired when the whole page has loaded, including all dependent resources such as stylesheets and images. -->
     <button class="btn btn-secondary" @click="submit">Pay now!</button>
