@@ -12,6 +12,7 @@
       },
       methods: {
           async handleSubmit(){
+              console.log("here")
             await axios.post('user/save', {
                 name: this.name,
                 username: this.username,
@@ -62,9 +63,7 @@
                         </div>
                     </div>
                     <br/>
-                    <router-link to="/preference">
-                        <button type="submit" class="w-full text-slate-400 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-[#FFF8EA] hover:bg-orange-200">Create an account</button>
-                    </router-link>
+                    <button type="submit" class="w-full text-slate-400 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-[#FFF8EA] hover:bg-orange-200">Create an account</button>
                     <p class="text-sm font-light text-gray-500 dark:text-gray-400">
                         Already have an account? <router-link to="/login" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Login here</router-link>
                     </p>

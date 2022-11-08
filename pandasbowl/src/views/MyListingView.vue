@@ -1,31 +1,93 @@
 <script>
 
+  import axios from "axios";
+
   export default {
     data() {
       return {
+        formData: null,
+        formDataImage: null,
         search: '',
         showModal: true,
-        value: 20,
-        format: {
-          prefix: '< $',
-          decimals: 2
-        },
-         products:[
-            {id: 1,foodName: "Spaghetti",diet: "Vegan" ,image: "https://www.onceuponachef.com/images/2019/09/Spaghetti-and-Meatballs.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ", instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 80.0, isRecipe: true},
-            {id: 2,foodName: "Baked Rice", diet: "Primal",image:"https://www.dopenkitchen.com.sg/wp-content/uploads/2020/06/salmonbakedrice-500x500.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 80.0, isRecipe: true},
-            {id: 3,foodName: "Fried Noodles", diet: "Vegan",image: "https://lh6.googleusercontent.com/DeHsaiZNjMgQ7KOMqu5BzSteUsVKf0obfPMqDtG16slGzEw397kdedJ9QB-6bZfMUQoLoYzvX0FLnzdJfKt8dxUOxd9J35c07xxJF6q1s6isM1YyiJOMj7nRERhbiXg8qQ96ZB6w=s0",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
-            {id: 4,foodName: "Fried Rice", diet: "Whole 30",image: "https://www.jessicagavin.com/wp-content/uploads/2018/09/fried-rice-8-1200.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 80.0, isRecipe: true},
-            {id: 5,foodName: "Cream Spaghetti", diet: "Gluten free",image: "https://www.errenskitchen.com/wp-content/uploads/2014/07/Creamy-Mushroom-Spaghetti-1-of-1-5.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
-            {id: 6,foodName: "Beef Wellington", diet: "Dairy free",image: "https://grillmomma.com/wp-content/uploads/2020/12/IMG_1986_jpg-3-1080x1440.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 80.0, isRecipe: true},
-            {id: 7,foodName: "Chicken Rice", diet: "Paleolithic",image: "https://singaporelocalfavourites.com/wp-content/uploads/2017/11/singapore-hainanese-roasted-chicken-rice.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
-            {id: 8,foodName: "Mac & Cheese", diet: "Gluten free",image: "https://www.allrecipes.com/thmb/CanMXBeN-9DZyRSzDxLAoy0w-t8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/238691-Simple-Macaroni-And-Cheese-mfs_006-f7f521c65f894aef85e17bc9125c2c4a.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
-            {id: 9,foodName: "Grilled Basil Chicken",diet: "Vegan" ,image: "https://www.afamilyfeast.com/wp-content/uploads/2013/07/Grilled-Basil-Garlic-Chicken-2.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ", instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
+        foodName: '',
+        hasRecipe:false,
+        instructions: '',
+        imageUrl: '',
+        info: '',
+        ingredients: '',
+        diet: '',
+        price:'',
+        products:[
+          {id: 1,foodName: "Spaghetti",diet: "Vegan" ,image: "https://www.onceuponachef.com/images/2019/09/Spaghetti-and-Meatballs.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ", instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 80.0, isRecipe: true},
+          {id: 2,foodName: "Baked Rice", diet: "Primal",image:"https://www.dopenkitchen.com.sg/wp-content/uploads/2020/06/salmonbakedrice-500x500.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 80.0, isRecipe: true},
+          {id: 3,foodName: "Fried Noodles", diet: "Vegan",image: "https://lh6.googleusercontent.com/DeHsaiZNjMgQ7KOMqu5BzSteUsVKf0obfPMqDtG16slGzEw397kdedJ9QB-6bZfMUQoLoYzvX0FLnzdJfKt8dxUOxd9J35c07xxJF6q1s6isM1YyiJOMj7nRERhbiXg8qQ96ZB6w=s0",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
+          {id: 4,foodName: "Fried Rice", diet: "Whole 30",image: "https://www.jessicagavin.com/wp-content/uploads/2018/09/fried-rice-8-1200.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 80.0, isRecipe: true},
+          {id: 5,foodName: "Cream Spaghetti", diet: "Gluten free",image: "https://www.errenskitchen.com/wp-content/uploads/2014/07/Creamy-Mushroom-Spaghetti-1-of-1-5.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
+          {id: 6,foodName: "Beef Wellington", diet: "Dairy free",image: "https://grillmomma.com/wp-content/uploads/2020/12/IMG_1986_jpg-3-1080x1440.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 80.0, isRecipe: true},
+          {id: 7,foodName: "Chicken Rice", diet: "Paleolithic",image: "https://singaporelocalfavourites.com/wp-content/uploads/2017/11/singapore-hainanese-roasted-chicken-rice.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
+          {id: 8,foodName: "Mac & Cheese", diet: "Gluten free",image: "https://www.allrecipes.com/thmb/CanMXBeN-9DZyRSzDxLAoy0w-t8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/238691-Simple-Macaroni-And-Cheese-mfs_006-f7f521c65f894aef85e17bc9125c2c4a.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ",instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
+          {id: 9,foodName: "Grilled Basil Chicken",diet: "Vegan" ,image: "https://www.afamilyfeast.com/wp-content/uploads/2013/07/Grilled-Basil-Garlic-Chicken-2.jpg",info:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere possimus deserunt veniam, ", instructions: "Some quick example text to build on the card title and make up the bulk of the card's content.", ingredients:"sugar, baking soda, salt, vanilla, yeast, spices and colors", price: 50.0, isRecipe: true},
         ],
       }
     },
     methods: {
+        onFileSelected(){
+          let file = this.$refs.uploadFoodImage.files[0];
+          this.formDataImage = new FormData();
+          console.log(file);
+          this.formDataImage.append("file", file);
+        },
         toggleModal() {
             this.showModal = !this.showModal
+        },
+        handleSubmit(){
+
+          //Let us perform two axios post here first to get the url after posting the image and second to save the food image.
+          axios({
+              url: '/image',
+              method: 'POST',
+              data: this.formDataImage,
+              headers: {
+                Accept: 'application/json',
+                'Content-Type': 'multipart/form-data'
+              }
+            }).then(response => {
+              let responseArr = response.data.split("/");
+              this.imageUrl = "https://" + responseArr[3] + ".s3." + responseArr[2] + "/" + responseArr[4];
+
+               let inputIngredients = this.ingredients.split(",");
+                console.log(this.imageUrl);
+                console.log(this.ingredients);
+
+                axios.post('fooditems/addFood', {
+                    foodName: this.foodName,
+                    price: this.price,
+                    hasRecipe: this.hasRecipe,
+                    instructions: this.instructions,
+                    image: this.imageUrl,
+                    info: this.info,
+                    diet: this.diet,
+                    ingredients: inputIngredients,
+                },
+                {
+                  headers: {
+                    // 'application/json' is the modern content-type for JSON, but some
+                    // older servers may use 'text/json'.
+                    // See: http://bit.ly/text-json
+                    'Authorization': "Bearer " + localStorage.getItem("token")
+                  }
+                });
+
+                this.foodName = '';
+                this.hasRecipe = false;
+                this.instructions = '';
+                this.formDataImage = null;
+                this.imageUrl="";
+                this.info = '';
+                this.ingredients = '';
+                this.diet = '';
+                this.price ='';
+            })
         }
     },
     computed:{
@@ -44,8 +106,8 @@
 </script>
 
 <template>
+    
     <div class="container mx-auto">
-
       <!-- Filter portion -->
       <div
          class="md:flex flex-row"
@@ -121,39 +183,53 @@
                     </button>
                     <div class="py-6 px-6 lg:px-8" style="margin-top:5vh">
                         <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Add a new food listing!</h3>
-                        <form class="space-y-3" action="#">
-                            <div>
-                                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Food Name:</label>
-                                <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                        <form @submit.prevent="handleSubmit" class="space-y-3" action="#">
+                            <div class="grid gap-4 grid-cols-2">
+                              <div>
+                                 <label for="foodName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Food Name:</label>
+                                <input name="foodName" id="foodName" v-model="foodName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                              </div>
+                               <div>
+                                <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Price:</label>
+                                <input name="price" id="price" v-model="price" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                               </div>              
                             </div>
                             <div>
-                                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Price:</label>
-                                <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
+                                <label for="information" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Information:</label>
+                                <input name="information" id="information" v-model="info" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
                             </div>
                             <div>
-                                <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Ingredients:</label>
-                                <textarea id="message" rows="3" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>
+                                <label for="ingredients" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Ingredients:</label>
+                                <textarea id="message" rows="2" v-model="ingredients" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></textarea>
                             </div>
                             <div>
-                                <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Instructions:</label>
-                                <textarea id="message" rows="3" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>
+                                <label for="instructions" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Instructions:</label>
+                                <textarea id="message" rows="2" v-model="instructions" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></textarea>
                             </div>
                             <div class="flex justify-center items-center w-full">
-                              <label for="dropzone-file" class="flex flex-col justify-center items-center w-full h-18 bg-gray-50 rounded-lg border-2 border-gray-300 border-dashed cursor-pointer dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                              <label v-if="formDataImage === null" for="dropzone-file" class="flex flex-col justify-center items-center w-full h-18 bg-gray-50 rounded-lg border-2 border-gray-300 border-dashed cursor-pointer dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
                                   <div class="flex flex-col justify-center items-center pt-5 pb-6">
-                                      <svg aria-hidden="true" class="mb-3 w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
+                                      <svg aria-hidden="true" class="mb-3 w-10 text-gray-400" style="height:30px" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
                                       <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
                                       <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
                                   </div>
-                                  <input id="dropzone-file" type="file" class="hidden" />
+                                  <input id="dropzone-file" ref="uploadFoodImage" type="file" class="hidden" @change="onFileSelected"/>
+                              </label>
+                              <label v-else class="flex flex-col justify-center items-center bg-green-200 w-full h-18 rounded-lg border-2 border-gray-300">
+                                  <div class="flex flex-col justify-center items-center pt-5 pb-6">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="mb-3 w-10 text-gray-400" style="height:60px" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                      <p class="text-xs text-gray-500 dark:text-gray-400">File has been successfully uploaded.</p>
+                                  </div>
                               </label>
                           </div> 
                             <div class="flex items-start">
                                 <div class="flex items-center h-5">
-                                    <input id="remember" aria-describedby="remember" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" required="">
+                                    <input id="hasRecipe" aria-describedby="hasRecipe" type="checkbox" v-model="hasRecipe" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800">
                                 </div>
                                 <div class="ml-3 text-sm">
-                                    <label for="remember" class="text-gray-500 dark:text-gray-300">Item has recipe!</label>
+                                    <label for="hasRecipe" class="text-gray-500 dark:text-gray-300">Item has recipe!</label>
                                 </div>
                             </div>
                             <button type="submit" class="w-full text-white bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add Listing</button>
