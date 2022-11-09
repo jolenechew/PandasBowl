@@ -95,7 +95,7 @@
           if (this.categories.length) {
               for(let category of this.categories){
                   for(let item of this.products){
-                      if(item.diet === category && item.price < this.value){
+                      if(item.diet.includes(category.toLowerCase()) && item.price < this.value){
                           output.push(item);
                       }
                   }

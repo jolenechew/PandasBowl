@@ -19,7 +19,6 @@
         diet: '',
         price:'',
         products:[],
-        urlNutrition:"https://api.spoonacular.com/recipes/guessNutrition?apiKey=9540bce016ee479e87f5f7d88feba48e",
         urlInfo:"https://api.spoonacular.com/recipes/analyze?apiKey=9540bce016ee479e87f5f7d88feba48e",
       }
     },
@@ -64,7 +63,7 @@
               instructions: this.instructions,
             })
             .then((response) => {
-              console.log(response.data);
+              console.log(this.diet);
               this.diet = response.data.diets;
             })
             .catch((error) => {
@@ -73,6 +72,7 @@
         },
 
       createRecord(){
+          console.log(this.diet);
           axios.post('fooditems/addFood', {
               foodName: this.foodName,
               price: this.price,
@@ -87,17 +87,31 @@
             headers: {
               'Authorization': "Bearer " + localStorage.getItem("token")
             }
+          }).then(() => {
+            this.foodName = '';
+            this.hasRecipe = false;
+            this.instructions = '';
+            this.formDataImage = null;
+            this.imageUrl="";
+            this.info = '';
+            this.ingredients = '';
+            this.diet = '';
+            this.price ='';
+          }).catch((error) => {
+            console.log(error.message);
           });
       },
 
       async getInformationAndCreateRecord(){
         await this.getInformation();
-        this.createRecord();
+        await this.createRecord();
+
+        this.route()
       },
 
       async handleSubmit(){
           //Let us perform two axios post here first to get the url after posting the image and second to save the food image.
-          axios({
+          await axios({
               url: '/image',
               method: 'POST',
               data: this.formDataImage,
@@ -114,18 +128,6 @@
                 console.log(this.ingredients);
 
                 this.getInformationAndCreateRecord();
-
-                this.foodName = '';
-                this.hasRecipe = false;
-                this.instructions = '';
-                this.formDataImage = null;
-                this.imageUrl="";
-                this.info = '';
-                this.ingredients = '';
-                this.diet = '';
-                this.price ='';
-
-                this.route();
             })
         }
     },
@@ -198,7 +200,7 @@
                        <div class="flex items-center">
                             <span class="text-lg font-semibold"></span><span class="font-bold text-lg">{{product.foodName}}</span>
                           </div>
-                          <p class="mt-1 text-sm">Cras justo odio, dapibus ac facilisis in.</p>
+                          <p class="mt-1 text-sm">{{product.info}}</p>
                           <div class="mt-2 flex items-center">
                             <button type="button" class="focus:outline-none text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-8 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-600 dark:focus:ring-green-800">Edit listing</button>
                           </div>

@@ -91,7 +91,7 @@
                 }else{
                     for(var category of this.categories){
                         for(var item of output){
-                            if(item.diet === category){
+                            if(item.diet.includes(category.toLowerCase()) === category){
                                 outputTwo.push(item);
                             }
                         }
