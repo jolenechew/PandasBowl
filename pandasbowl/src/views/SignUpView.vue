@@ -18,6 +18,8 @@
                 username: this.username,
                 address: this.address,
                 password: this.password
+            }).catch(() => {
+                alert("Please enter the correct information to create an account!");
             });
 
             this.$router.push('/login');

@@ -13,7 +13,9 @@
             const response = await axios.post('login', null, {params: {
                 username: this.username,
                 password: this.password
-            }});
+            }}).catch(() => {
+                alert("Please enter the correct Login credentials!");
+            });
 
             localStorage.setItem('token', response.data.access_token);
             this.emitSignIn();
