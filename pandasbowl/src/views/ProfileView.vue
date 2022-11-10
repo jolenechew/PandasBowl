@@ -1,4 +1,58 @@
+<script>
+import axios from "axios";
+export default {
+    data () {
+        return {
+          name:"",
+          userAddress:"",
+          totalSales:"",
+          totalPurchase:""
+        };
+    },
 
+    async created(){
+        await axios.get('currentUser',
+        {
+            headers: {
+            'Authorization': "Bearer " + localStorage.getItem("token")
+            }
+        })
+        .then((response)=>{
+          const user = response.data;
+          this.name = user.name;
+          this.address = user.address;
+        });
+
+
+              await axios.get('transactions/purchaseSum',
+        {
+            headers: {
+            'Authorization': "Bearer " + localStorage.getItem("token")
+            }
+        })
+        .then((response) => {
+            this.totalPurchase = response.data;
+        })
+        .catch((error) => {
+            console.log(error.message);
+        });
+
+         await axios.get('transactions/salesSum',
+        {
+            headers: {
+            'Authorization': "Bearer " + localStorage.getItem("token")
+            }
+        })
+        .then((response) => {
+            this.totalSales = response.data;
+        })
+        .catch((error) => {
+        console.log(error.message);
+        });
+    },
+
+};
+</script>
 <template>
   <div>
     <navbar-component></navbar-component>
@@ -66,7 +120,7 @@
                 <h3
                   class="text-4xl font-semibold leading-normal mb-2 text-gray-800 mb-2"
                 >
-                  Jenna Stones
+                  {{this.name}}
                 </h3>
                 <div
                   class="text-sm leading-normal mt-0 mb-2 text-gray-500 font-bold uppercase"
@@ -74,26 +128,38 @@
                   <i
                     class="fas fa-map-marker-alt mr-2 text-lg text-gray-500"
                   ></i>
-                  Los Angeles, California
+                  {{this.address}}
                 </div>
-                <div class="mb-2 text-gray-700 mt-10">
-                  <i class="fas fa-briefcase mr-2 text-lg text-gray-500"></i
-                  >Solution Manager - Creative Tim Officer
-                </div>
-                <div class="mb-2 text-gray-700">
-                  <i class="fas fa-university mr-2 text-lg text-gray-500"></i
-                  >University of Computer Science
+                <div class="flex flex-row justify-center mt-6">
+                  <div class="p-6 mx-6 max-w-sm bg-lime-200 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                        <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Total Earned</h5>
+                        <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">${{this.totalSales}}</h5>
+                        <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">Go to the
+                           <router-link to="/myOrders" class="inline-flex items-center text-blue-600 hover:underline">
+                              dashboard
+                              <svg class="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path><path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path></svg>
+                            </router-link> to view all the amounts earned from the sales of products.
+                        </p>
+                    </div>
+                    <div class="p-6 mx-6 max-w-sm bg-rose-300 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                      <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Total Spent</h5>
+                      <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">${{this.totalPurchase}}</h5>
+                      <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">Go to the  <router-link to="/myOrders" class="inline-flex items-center text-blue-600 hover:underline">
+                              dashboard
+                              <svg class="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path><path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path></svg>
+                            </router-link> to view all the amounts spent from the purchase of products.</p>
+                      
+                  </div>
                 </div>
               </div>
               <div class="mt-10 py-10 border-t border-gray-300 text-center">
                 <div class="flex flex-wrap justify-center">
                   <div class="w-full lg:w-9/12 px-4">
                     <p class="mb-4 text-lg leading-relaxed text-gray-800">
-                      An artist of considerable range, Jenna the name taken by
-                      Melbourne-raised, Brooklyn-based Nick Murphy writes,
-                      performs and records all of his own music, giving it a
-                      warm, intimate feel with a solid groove structure. An
-                      artist of considerable range.
+                      As a casual homebake and cake artist, {{this.name}} has
+                      been baking since a tender age of 10. When the pandemic hit, {{this.name}}
+                      was retrenched and has since looked toward selling homebakes for 
+                      income. {{this.name}} promises to deliver food of the highest quality!
                     </p>
                   </div>
                 </div>
@@ -103,6 +169,5 @@
         </div>
       </section>
     </main>
-    <footer-component></footer-component>
   </div>
 </template>
