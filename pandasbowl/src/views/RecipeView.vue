@@ -49,7 +49,7 @@
       }
     },
     async created() {
-          const foodItems = await axios.get('fooditems/recipes',);
+          const foodItems = await axios.get('fooditems/recipes');
 
           this.setRecipedFoodItems(foodItems);
     },
@@ -97,8 +97,6 @@
                         }
                     }
                 }
-
-
                 outputTwo = outputTwo.filter((recipe) => recipe.foodName.toLowerCase().includes(this.search.trim().toLowerCase()))
             }
 
@@ -200,7 +198,9 @@
                           </div>
                           <p class="mt-1 text-sm">{{product.info}}</p>
                           <div class="mt-2 flex items-center">
-                            <button type="button" class="focus:outline-none text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-8 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-600 dark:focus:ring-green-800">Go to recipe</button>
+                            <router-link to="/foodCardView" class="focus:outline-none text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-8 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-600 dark:focus:ring-green-800">
+                              Go to recipe
+                            </router-link>
                           </div>
                         </div>
                       </div>
