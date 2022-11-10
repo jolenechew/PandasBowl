@@ -46,7 +46,7 @@ const routes = [
     component: PreferenceView
   },
   {
-    path:'/payment',
+    path:'/payment/:id',
     name:'payment',
     component:PaymentView
   },

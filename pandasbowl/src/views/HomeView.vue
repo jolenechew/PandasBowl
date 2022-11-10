@@ -1,16 +1,9 @@
 <script>
   import FooterComponent from '../components/FooterComponent.vue';
 
-  import axios from "axios";
-
   export default{
     components:{
       FooterComponent,
-    },
-    async created(){
-      const response = await axios.get('fooditems/all');
-
-      console.log(response);
     },
   }
 
@@ -43,8 +36,8 @@
       aria-label="Slide 3"
     ></button>
   </div>
-  <div class="carousel-inner relative w-full overflow-hidden">
-    <div class="carousel-item active float-left w-full h-full">
+  <div class="carousel-inner relative w-full overflow-hidden" style="max-height:800px">
+    <div class="carousel-item active float-left w-full">
       <img
         src="../assets/foodCarouselOne.jpeg"
         class="block w-full h-full object-cover"
@@ -150,7 +143,7 @@
       <div class="card-actions justify-end">
         <div class="badge badge-secondary badge-outline">Vegetarian</div> 
         <div class="badge badge-error badge-outline">On Sale</div>
-        <router-link to="/payment"><button class="btn btn-primary">BUY NOW</button></router-link>
+        <button class="btn btn-primary">BUY NOW</button>
       </div>
       <!-- <div class="card-actions justify-end">
         <router-link to="/marketplace" class="menu-items font-sans"><button class="btn btn-primary">Buy Now</button></router-link>

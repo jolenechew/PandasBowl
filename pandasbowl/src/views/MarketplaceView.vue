@@ -197,7 +197,7 @@
                     focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
                       <option selected>Default</option>
                       <option value="1">Popularity</option>
-                      <option value="2">Price:Low to High</option>
+                      <option value="2">Price: Low to High</option>
                       <option value="3">Price: High to Low</option>
                   </select>
                 </div>

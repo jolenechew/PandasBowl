@@ -26,6 +26,7 @@ export default {
         this.hbbAddress = currfood.address;
         this.hasRecipe = currfood.hasRecipe;
 
+        this.getNutritionAnalysis();
         axios.get(this.urlMap, {
           params: {
             address: this.hbbAddress,
@@ -44,6 +45,7 @@ export default {
     });
   },
   data() {
+    this.publishableKey = "pk_test_51Lx8C0I9sZZbC79llCOMS8oUnvK3F8tDbeaXJVWUZVGj6WzshAh5q6spUKRgvOKwpAXJupLKS0fc5D7p5E4hnwth00biB97Vgk";
     return {
       foodId:"",
       foodName: "",
@@ -139,9 +141,6 @@ export default {
     GoogleMap,
     Marker,
   },
-  beforeMount() {
-    this.getNutritionAnalysis();
-  },
   methods: {
     // update all the calories, fat, protein, carbs properties
     getNutritionAnalysis() {
@@ -149,7 +148,7 @@ export default {
       axios
         .get(this.urlNutrition, {
           params: {
-            title: "Butter Chicken", // this will be foodname
+            title: this.foodName, // this will be foodname
           },
         })
         .then((response) => {
@@ -168,7 +167,8 @@ export default {
     getLatLng(data){
       var location = data["results"][0]["geometry"]["location"];
       return location;
-    }
+    },
+
   },
 };
 </script>
@@ -268,10 +268,9 @@ export default {
           </div> 
         </div>
         <div>
-          <span class="font-bold text-xl">Meetup Location:</span>
+          <span class="font-bold text-xl">Meetup Location: {{hbbAddress}}</span>
           <br>
           <br>
-          <div class="words">Address: &nbsp; {{hbbAddress}}</div>
           <div id="map">
             <GoogleMap
             api-key="AIzaSyBr_1j_A_JjyD9ut5tQnmCyXjcYUJVqBmk"
@@ -289,7 +288,7 @@ export default {
           Recipe By: {{ hbbName }}
           <br>
           <br>
-          <router-link to="/payment"
+          <router-link :to="'/payment/' + this.foodId"
             ><button class="btn btn-accent w-full">BUY NOW</button></router-link
           >
         </div>

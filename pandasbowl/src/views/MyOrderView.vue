@@ -1,3 +1,31 @@
+<script>
+import axios from "axios";
+export default {
+    data () {
+        return {
+        transactions:[]
+        };
+    },
+
+    async created(){
+
+        await axios.get('transactions/past',
+        {
+            headers: {
+            'Authorization': "Bearer " + localStorage.getItem("token")
+            }
+        })
+        .then((response) => {
+        this.transactions = response.data;
+        console.log(response.data);
+        })
+        .catch((error) => {
+        console.log(error.message);
+        });
+    },
+
+};
+</script>
 <template>
 
 <div class="w-5/6 mt-16 mx-auto">
@@ -13,7 +41,7 @@
                         Status
                     </th>
                     <th scope="col" class="py-3 px-6">
-                        Quantity
+                        Date
                     </th>
                     <th scope="col" class="py-3 px-6">
                         Price
@@ -23,7 +51,7 @@
             <tbody>
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                     <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Apple MacBook Pro 17"
+                        Apple Crumble
                     </th>
                     <td class="py-4 px-6">
                         <span
@@ -33,16 +61,16 @@
                             <span class="relative">Payment Failed</span>
                         </span>
                     </td>
-                    <td class="py-4 px-12">
-                        7
+                    <td class="py-4 px-6">
+                        2022-11-9
                     </td>
                     <td class="py-4 px-6">
-                        $2999
+                        $50
                     </td>
                 </tr>
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700" v-for="transaction in transactions" :key="transaction">
                     <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Microsoft Surface Pro
+                        {{transaction.foodName}}
                     </th>
                     <td class="py-4 px-6">
                         <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
@@ -51,29 +79,11 @@
                             <span class="relative">Payment Success</span>
                         </span>
                     </td>
-                    <td class="py-4 px-12">
-                        6
+                    <td class="py-4 px-6">
+                        {{transaction.transactionDate}}
                     </td>
                     <td class="py-4 px-6">
-                        $1999
-                    </td>
-                </tr>
-                <tr class="bg-white dark:bg-gray-800">
-                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Magic Mouse 2
-                    </th>
-                    <td class="py-4 px-6">
-                        <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                            <span aria-hidden
-                                class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-                            <span class="relative">Payment Success</span>
-                        </span>
-                    </td>
-                    <td class="py-4 px-12">
-                        5
-                    </td>
-                    <td class="py-4 px-6">
-                        $99
+                        ${{transaction.totalCost}}
                     </td>
                 </tr>
             </tbody>
