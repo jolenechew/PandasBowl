@@ -81,7 +81,7 @@ const routes = [
     component: RecipeView
   },
   {
-    path: '/foodCardView',
+    path: '/foodCardView/:id',
     name: 'foodCardView',
     component: FoodCardView
   },

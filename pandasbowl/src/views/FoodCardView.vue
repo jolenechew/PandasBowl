@@ -6,11 +6,14 @@ import { GoogleMap, Marker } from "vue3-google-map";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faClock, faUtensils } from "@fortawesome/free-solid-svg-icons";
+import {useRoute} from "vue-router";
 library.add(faClock, faUtensils);
 export default {
   el: "#app",
-  async created(){
-    await axios.get('fooditems/fooditem', { params: { foodId: 10 } }) 
+  async mounted(){
+    const route = useRoute();
+    this.foodId = route.params.id;
+    await axios.get('fooditems/fooditem', { params: { foodId: this.foodId } }) 
     .then((response) => {
         let currfood = response.data;
         this.foodName = currfood.foodName;
@@ -21,8 +24,20 @@ export default {
         this.info = currfood.info;
         this.hbbName = currfood.username;
         this.hbbAddress = currfood.address;
+        this.hasRecipe = currfood.hasRecipe;
 
-        console.log(response)
+        axios.get(this.urlMap, {
+          params: {
+            address: this.hbbAddress,
+            key: "AIzaSyBr_1j_A_JjyD9ut5tQnmCyXjcYUJVqBmk",
+          },
+        }).then((response) => {
+          let data = response.data;
+          let coordinate = this.getLatLng(data);
+          this.hbbLat = coordinate["lat"];
+          this.hbbLng = coordinate["lng"];
+          console.log(this.hbbLat + " " + this.hbbLng);
+        })
     })
     .catch((error) => {
       console.log(error.message);
@@ -30,13 +45,17 @@ export default {
   },
   data() {
     return {
+      foodId:"",
       foodName: "",
       foodImage: "",
       ingredients: [],
       instructions: "",
       info: "",
+      hasRecipe: false,
       hbbName: "",
       hbbAddress: "",
+      hbbLat: "",
+      hbbLng: "",
       servings: 1,
       urlNutrition:
         "https://api.spoonacular.com/recipes/guessNutrition?apiKey=9540bce016ee479e87f5f7d88feba48e",
@@ -48,6 +67,7 @@ export default {
       protein: 9,
       carbs: 4,
       diet: [],
+
       options: {
         plotOptions: {
           radar: {
@@ -119,13 +139,8 @@ export default {
     GoogleMap,
     Marker,
   },
-  setup() {
-    const center = { lat: -34, lng: 154 };
-    return { center };
-  },
   beforeMount() {
     this.getNutritionAnalysis();
-    // this.getLoc();
   },
   methods: {
     // update all the calories, fat, protein, carbs properties
@@ -149,6 +164,11 @@ export default {
           console.log(error.message);
         });
     },
+
+    getLatLng(data){
+      var location = data["results"][0]["geometry"]["location"];
+      return location;
+    }
   },
 };
 </script>
@@ -214,10 +234,10 @@ export default {
             {{ dietEntry }}
           </span>
         </div>
-        <br />
-        <div>
+        <div v-if="hasRecipe">
+          <br />
           <p class="font-bold text-xl">Ingredients: </p>
-          <br>
+          <br/>
           <p class="ml-1">
             <ol class="list-none">
               <li v-for="(item, index) in ingredients" v-bind:key="index">
@@ -227,15 +247,13 @@ export default {
             </ol>
           </p>
         </div>
-        <br />
-        <br>
-        <div>
+        <div v-if="hasRecipe">
+          <br/>
           <span class="font-bold text-xl">Instructions: </span>
           <br />
           <div v-for="(instruct, index) in instructionsArray" v-bind:key="index" class="words">
             <span class="text-4xl brush">{{index+1}}. &nbsp;</span>{{ instruct }}</div>
         </div>
-        <br>
         <br>
         <div>
           <span class="font-bold text-xl">Nutrition Analysis: </span>
@@ -258,10 +276,10 @@ export default {
             <GoogleMap
             api-key="AIzaSyBr_1j_A_JjyD9ut5tQnmCyXjcYUJVqBmk"
             style="width: 100%px; height: 280px"
-            :center="center"
+            :center="{lat: this.hbbLat, lng: this.hbbLng}"
             :zoom="15"
             >
-            <Marker :options="{ position: center }" />
+            <Marker :options="{ position: {lat: this.hbbLat, lng: this.hbbLng} }" />
             </GoogleMap>
           </div>
         </div>

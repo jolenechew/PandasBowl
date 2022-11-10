@@ -16,7 +16,7 @@
         info: '',
         ingredients: '',
         inputIngredients:[],
-        diet: '',
+        diet: [],
         price:'',
         products:[],
         urlInfo:"https://api.spoonacular.com/recipes/analyze?apiKey=9540bce016ee479e87f5f7d88feba48e",
