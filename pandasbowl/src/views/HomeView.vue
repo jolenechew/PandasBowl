@@ -7,6 +7,14 @@
     },
   }
 
+  window.__be = window.__be || {}; 
+    window.__be.id = "636e0eb2f89ae70007cefb9a"; 
+    (function() { 
+        var be = document.createElement('script'); be.type = 'text/javascript'; be.async = true; 
+        be.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.chatbot.com/widget/plugin.js'; 
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(be, s); 
+    })();
+
 </script>
 <template>
   <div
@@ -36,7 +44,7 @@
       aria-label="Slide 3"
     ></button>
   </div>
-  <div class="carousel-inner relative w-full overflow-hidden" style="max-height:800px">
+  <div class="carousel-inner relative w-full overflow-hidden" style="max-height:720px">
     <div class="carousel-item active float-left w-full">
       <img
         src="../assets/foodCarouselOne.jpeg"
@@ -49,13 +57,6 @@
         src="../assets/foodCarouselTwo.jpeg"
         class="block w-full h-full object-cover"
         alt="two"
-      />
-    </div>
-    <div class="carousel-item float-left w-full h-full">
-      <img
-        src="../assets/foodCarouselThree.jpeg"
-        class="block w-full h-full object-fill"
-        alt="three"
       />
     </div>
   </div>
@@ -128,7 +129,7 @@
       </div>
     </section>
     <!--added top recipes header before cards-->
-  <div class="p-10 pb-0 text-xl grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-5 bg-[#C8DBBE] text-black">Items you previously liked! &hearts;</div>
+  <div class="p-10 pb-0 text-xl grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-5 bg-[#C8DBBE] text-black">Your Recommendations &hearts;</div>
   <!--edited the cards by adding some badges-->
 <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-5 bg-[#C8DBBE]">
     <!--Card 1-->
