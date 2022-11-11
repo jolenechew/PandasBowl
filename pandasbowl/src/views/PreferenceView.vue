@@ -1,5 +1,5 @@
 <template>
-    <section class="bg-gray-50 dark:bg-gray-900 pb-10 pt-10">
+    <section class="bg-gray-50 dark:bg-gray-900 pb-10">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="hero min-h-screen">
                 <div class="hero-content text-center">
@@ -21,19 +21,19 @@
             </div>
             <!--diet type options (checkbox)-->
             <div class="flex flex-col border-opacity-50 pt-0" id="select">
-                <div class="grid h-20 card bg-base-300 rounded-box place-items-center">
+                <div class="grid mb-4 h-20 card bg-base-300 rounded-box place-items-center">
                     <label for="vegan"><input type="checkbox" name="radio-1 " id="vegan" class="checkbox checkbox-accent"/> &nbsp; Vegan</label>
                 </div>
                 <br/>
-                <div class="grid h-20 card bg-base-300 rounded-box place-items-center">
+                <div class="grid mb-4 h-20 card bg-base-300 rounded-box place-items-center">
                     <label for="vegetarian"><input type="checkbox" name="radio-2" id="vegetarian" class="checkbox checkbox-accent"/> &nbsp; Vegetarian</label>
                 </div>
                 <br/>
-                <div class="grid h-20 card bg-base-300 rounded-box place-items-center">
+                <div class="grid mb-4 h-20 card bg-base-300 rounded-box place-items-center">
                     <label for="lowcarb"><input type="checkbox" name="radio-3" id="lowcarb" class="checkbox checkbox-accent"/> &nbsp; Low-carb</label>
                 </div>
                 <br/>
-                <div class="grid h-20 card bg-base-300 rounded-box place-items-center">
+                <div class="grid mb-4 h-20 card bg-base-300 rounded-box place-items-center">
                     <label for="dairyfree"><input type="checkbox" name="radio-4" id="dairyfree" class="checkbox checkbox-accent"/> &nbsp; Dairy-free</label>
                 </div>
                 <br/>

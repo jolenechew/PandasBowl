@@ -22,7 +22,7 @@
                 alert("Please enter the correct information to create an account!");
             });
 
-            this.$router.push('/login');
+            this.$router.push('/preference');
           }
       }
   }
