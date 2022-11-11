@@ -14,34 +14,52 @@ export default {
     const route = useRoute();
     this.foodId = route.params.id;
     await axios.get('fooditems/fooditem', { params: { foodId: this.foodId } }) 
-    .then((response) => {
-        let currfood = response.data;
-        this.foodName = currfood.foodName;
-        this.foodImage = currfood.image;
-        this.ingredients = currfood.ingredients;
-        this.instructions = currfood.instructions;
-        this.diet = currfood.diet;
-        this.info = currfood.info;
-        this.hbbName = currfood.username;
-        this.hbbAddress = currfood.address;
-        this.hasRecipe = currfood.hasRecipe;
+      .then((response) => {
+          let currfood = response.data;
+          this.foodName = currfood.foodName;
+          this.foodImage = currfood.image;
+          this.ingredients = currfood.ingredients;
+          this.instructions = currfood.instructions;
+          this.diet = currfood.diet;
+          this.info = currfood.info;
+          this.hbbName = currfood.username;
+          this.hbbAddress = currfood.address;
+          this.hasRecipe = currfood.hasRecipe;
 
-        this.getNutritionAnalysis();
-        axios.get(this.urlMap, {
-          params: {
-            address: this.hbbAddress,
-            key: "AIzaSyBr_1j_A_JjyD9ut5tQnmCyXjcYUJVqBmk",
-          },
-        }).then((response) => {
-          let data = response.data;
-          let coordinate = this.getLatLng(data);
-          this.hbbLat = coordinate["lat"];
-          this.hbbLng = coordinate["lng"];
-          console.log(this.hbbLat + " " + this.hbbLng);
-        })
+          this.getNutritionAnalysis();
+          axios.get(this.urlMap, {
+            params: {
+              address: this.hbbAddress,
+              key: "AIzaSyBr_1j_A_JjyD9ut5tQnmCyXjcYUJVqBmk",
+            },
+          }).then((response) => {
+            let data = response.data;
+            let coordinate = this.getLatLng(data);
+            this.hbbLat = coordinate["lat"];
+            this.hbbLng = coordinate["lng"];
+            console.log(this.hbbLat + " " + this.hbbLng);
+          })
+      })
+      .catch((error) => {
+        console.log(error.message);
+    });
+
+    
+    await axios.get('likeditems',
+    {
+      headers: {
+        'Authorization': "Bearer " + localStorage.getItem("token")
+      },
+      params:{
+        foodId: this.foodId
+      }
+    })
+    .then((response) => {
+        this.isLiked= response.data;
+        console.log(response.data);
     })
     .catch((error) => {
-      console.log(error.message);
+        console.log(error.message);
     });
   },
   data() {
@@ -50,6 +68,7 @@ export default {
       foodId:"",
       foodName: "",
       foodImage: "",
+      isLiked: false,
       ingredients: [],
       instructions: "",
       info: "",
@@ -169,6 +188,41 @@ export default {
       return location;
     },
 
+    async likeItem(){
+      await axios.post('likeditems', null,
+        {
+          headers: {
+            'Authorization': "Bearer " + localStorage.getItem("token")
+          },
+          params:{
+            foodId: this.foodId
+          }
+        })
+      .then(() => {
+          this.isLiked = !this.isLiked;
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+    },
+
+    async unlikeItem(){
+      await axios.delete('likeditems',
+        {
+          headers: {
+            'Authorization': "Bearer " + localStorage.getItem("token")
+          },
+          params:{
+            foodId: this.foodId
+          }
+        })
+      .then(() => {
+          this.isLiked = !this.isLiked;
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+    }
   },
 };
 </script>
@@ -218,7 +272,8 @@ export default {
         </div>
       </div>
       <div class="btn-group float-right mr-32">
-        <button class="btn btn-accent">Like</button>
+        <button class="btn btn-accent" @click="unlikeItem" v-if="isLiked">Unlike</button>
+        <button class="btn btn-accent" @click="likeItem" v-else>Like</button>
         <button class="btn btn-primary">Share</button>
       </div>
     </div>
