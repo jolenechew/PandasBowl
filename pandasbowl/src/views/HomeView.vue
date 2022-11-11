@@ -1,10 +1,28 @@
 <script>
   import FooterComponent from '../components/FooterComponent.vue';
+  import axios from "axios";
 
   export default{
     components:{
       FooterComponent,
     },
+     data() {
+      return {
+        products:[],
+      }
+    },
+    async created() {
+          const foodItems = await axios.get('fooditems/all');
+
+          this.setFoodItems(foodItems);
+    },
+    methods: {
+      setFoodItems(response){
+        let foodArr = response.data;
+        this.products = foodArr.sort((a,b) => b.likes- a.likes).slice(0,4);
+        console.log(this.products);
+      },
+    }
   }
 
   window.__be = window.__be || {}; 
@@ -44,7 +62,7 @@
       aria-label="Slide 3"
     ></button>
   </div>
-  <div class="carousel-inner relative w-full overflow-hidden" style="max-height:720px">
+  <div class="carousel-inner relative w-full overflow-hidden" style="max-height:660px">
     <div class="carousel-item active float-left w-full">
       <img
         src="../assets/foodCarouselOne.jpeg"
@@ -133,59 +151,18 @@
   <!--edited the cards by adding some badges-->
 <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-5 bg-[#C8DBBE]">
     <!--Card 1-->
-    <div class="card w-30 bg-white shadow-xl">
-    <figure><img class="w-full" src="../assets/foodCarouselTwo.jpeg" /></figure>
+    <div class="card w-30 bg-white shadow-xl" :key="product.id" v-for="product in products">
+    <figure><img class="w-full" style="height:280px" :src="product.image" /></figure>
     <div class="card-body">
       <h2 class="card-title text-black">
-        Caesar Salad
+        {{product.foodName}}
       </h2>
-      <p class="text-black">This Caesar salad recipe is guaranteed to impress dinner party guests! It's topped with homemade croutons, crisp veggies, and a rich, tangy dressing.</p>
+      <p class="text-black">{{product.info}}</p>
       <div class="card-actions justify-end">
       </div>
       
     </div>
   </div>
-  <!--Card 2-->
-  <div class="card w-30 bg-white shadow-xl">
-    <figure><img class="w-full" src="../assets/foodCarouselTwo.jpeg" /></figure>
-    <div class="card-body">
-      <h2 class="card-title text-black">
-        Pizza Margherita
-      </h2>
-      <p class="text-black">Here is the archetype of a thin-crust pizza pie, a pizza margherita adorned simply in the colors of the Italian flag: green from basil, white from mozzarella, red from tomato sauce. </p>
-      <div class="card-actions justify-end">
-      </div>
-    </div>
-  </div>
-
-    <!--Card 3-->
-    <div class="card w-100 bg-white shadow-xl">
-    <figure><img class="w-full" src="../assets/foodCarouselTwo.jpeg" /></figure>
-    <div class="card-body">
-      <h2 class="card-title text-black">
-        Keto Vanilla Cupcakes
-      </h2>
-      <p class="text-black">These cupcakes are super easy to make and the texture is light, fluffy, and melt-in-your-mouth good.</p>
-      <div class="card-actions justify-end">
-      </div>
-      <!-- <div class="card-actions justify-end">
-        <router-link to="/marketplace" class="menu-items font-sans"><button class="btn btn-primary">Buy Now</button></router-link>
-      </div> -->
-    </div>
-  </div>
-
-    <!--Card 4-->
-    <div class="card w-30 bg-white shadow-xl">
-    <figure><img class="w-full" src="../assets/foodCarouselTwo.jpeg" /></figure>
-    <div class="card-body">
-      <h2 class="card-title text-black">
-        Vegan Hamburger
-      </h2>
-      <p class="text-black">Packed with flavour, these vegan corn burgers are healthy and seriously satisfying.</p>
-      <div class="card-actions justify-end">
-      </div>
-      </div>
-      </div>
 </div>
 
     <FooterComponent></FooterComponent>
