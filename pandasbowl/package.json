@@ -26,6 +26,7 @@
     "flowbite": "^1.5.3",
     "jw-vue-pagination": "^1.0.3",
     "mitt": "^3.0.0",
+    "simple-keyboard": "^3.4.185",
     "tw-elements": "^1.0.0-alpha12",
     "vue": "^3.2.41",
     "vue-range-slider": "^0.6.0",
