@@ -8,6 +8,7 @@
     },
      data() {
       return {
+        isLoggedIn: localStorage.getItem('token'),
         products:[],
       }
     },
@@ -160,7 +161,19 @@
       <p class="text-black">{{product.info}}</p>
       <div class="card-actions justify-end">
       </div>
-      
+       <div class="mt-2 flex items-center" v-if="isLoggedIn">
+          <router-link :to="'/foodCardView/' + product.id" class="focus:outline-none text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-8 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-600 dark:focus:ring-green-800 w-full text-center">
+            View item now
+          </router-link>
+        </div>
+        <div class="mt-2 flex items-center" v-else>
+          <router-link :to="'/login'" class="focus:outline-none text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm pl-6 pr-8 py-2.5 mb-2 dark:bg-green-600 dark:hover:bg-green-600 dark:focus:ring-green-800 flex">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" style="height:20px; width:25px;">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+            </svg>
+            Log in to view
+          </router-link>
+        </div>
     </div>
   </div>
 </div>

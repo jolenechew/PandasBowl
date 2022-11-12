@@ -270,7 +270,7 @@ export default {
       <div class="mx-auto">
         <div class="inline-block mr-8 text-xl subtitle">
           <font-awesome-icon icon="fa-solid fa-clock" />
-          {{ time }} min
+          60 min
         </div>
         <div class="inline-block ml-8 text-xl subtitle">
           <font-awesome-icon icon="fa-solid fa-utensils" />
@@ -280,8 +280,8 @@ export default {
         <br>
         <div>
           <div class="mx-auto md:mr-16 lg:mr-32 md:float-right">
-            <button class="btn btn-accent mt-1" @click="unlikeItem" v-if="isLiked">Unlike</button>
-            <button class="btn btn-accent mt-1" @click="likeItem" v-else> <svg style="color: red" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16"> <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z" fill="red"></path> </svg><span class="capitalize font-sans text-base font-semibold">&nbsp; Like</span></button>
+            <button class="btn btn-accent mt-1" @click="unlikeItem" v-if="isLiked"><span class="capitalize font-sans text-base font-semibold">&nbsp; Unlike</span></button>
+            <button class="btn bg-pink-100 border-none text-black mt-1" @click="likeItem" v-else> <svg style="color: red" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16"> <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z" fill="red"></path> </svg><span class="capitalize font-sans text-base font-semibold">&nbsp; Like</span></button>
             <telegram-button class="w-28"
               url="http://localhost:3001/foodCardView"  
               description="Look at what I found! Let's try this recipe together!" 
@@ -298,11 +298,11 @@ export default {
       </div> -->
     </div>
 
-    <div class="grid grid-rows-6 grid-cols-6 mt-16 sm:mx-2 md:mx-16 lg:mx-32">
-      <div class="col-span-6 md:col-span-2">
-        <img :src="foodImage" alt="img" style="min-height:700px;"/>
+    <div class="flex flex-wrap mt-16 sm:mx-2 md:mx-16 lg:mx-32">
+      <div class="w-full md:w-2/5 grey h-full">
+        <img :src="foodImage" alt="img" class="w-full" style="min-height:700px;"/>
       </div>
-      <div class="col-span-6 md:col-span-4 bg-color p-8 order-first md:order-last">
+      <div class="w-full md:w-3/5 bg-color p-8 order-first md:order-last">
         <div>
           <span class="font-bold text-xl">Diet type: </span>
           <span class="words" v-for="(dietEntry, index) in diet" :key="index">
@@ -349,7 +349,7 @@ export default {
           <div id="map">
             <GoogleMap
             api-key="AIzaSyBr_1j_A_JjyD9ut5tQnmCyXjcYUJVqBmk"
-            style="width: 100%px; height: 280px"
+            style="width: 100%; height: 280px"
             :center="{lat: this.hbbLat, lng: this.hbbLng}"
             :zoom="15"
             >
