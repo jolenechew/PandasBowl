@@ -50,6 +50,7 @@
   class="carousel slide carousel-fade relative h-fit"
   data-bs-ride="carousel"
 >
+<div class="carousel-content">PANDA'S BOWL</div>
 <div class="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4 h-fit">
     <button
       type="button"
@@ -83,6 +84,13 @@
     <div class="carousel-item float-left w-full h-full">
       <img
         src="../assets/foodCarouselTwo.jpeg"
+        class="block w-full h-full object-cover"
+        alt="two"
+      />
+    </div>
+    <div class="carousel-item float-left w-full h-full">
+      <img
+        src="../assets/foodCarouselThree.jpeg"
         class="block w-full h-full object-cover"
         alt="two"
       />
@@ -196,5 +204,14 @@
     }
     .card-items{
         @apply rounded overflow-hidden shadow-lg bg-white
+    }
+    .carousel-content {
+      position: absolute;
+      bottom: 35%;
+      left: 33%;
+      z-index: 20;
+      font-family: "Times New Roman", Times, serif;
+      font-size: 70px;
+      color: rgb(237, 234, 234);
     }
 </style>
