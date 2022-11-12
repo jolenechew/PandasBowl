@@ -13,6 +13,7 @@ import MyListingView from '../views/MyListingView'
 import MyOrderView from '../views/MyOrderView'
 import RecipeView from '../views/RecipeView'
 import FoodCardView from '../views/FoodCardView'
+import WordleView from '../views/WordleView'
 
 const routes = [
   {
@@ -84,6 +85,11 @@ const routes = [
     path: '/foodCardView/:id',
     name: 'foodCardView',
     component: FoodCardView
+  },
+  {
+    path: '/wordle',
+    name: 'wordle',
+    component: WordleView
   },
 ]
 
