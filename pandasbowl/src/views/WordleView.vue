@@ -24,6 +24,10 @@ const lostGame = computed(() => !wonGame.value
   && state.currentGuessIndex >=6
 );
 
+const winGame = () =>{
+    alert("Your points are redeemed!");
+}
+
 const handleInput = (key) => {
     if (state.currentGuessIndex >= 6 || wonGame.value) {
         return;
@@ -89,15 +93,14 @@ onMounted(() => {
                 Congrats you solved it!<br>
             You earned a discount for your next purchase
             </p>
-            <button class="bg-rose-900 hover:bg-rose-800 text-white font-bold py-2 px-4 rounded-full">
-                Redeem
+            <button @click="winGame" class="bg-rose-900 hover:bg-rose-800 text-white font-bold py-2 px-4 rounded-full">
+                <router-link :to="'/'" >
+                    Redeem
+                </router-link>
             </button>
         </div>
         <div v-else-if="lostGame" class="text-center">
             Out of tries.
-            <!-- <button class="bg-rose-900 hover:bg-rose-800 text-white font-bold py-2 px-4 rounded-full">
-                Retry
-            </button> -->
         </div>
         <simple-keyboard 
         @onKeyPress="handleInput"
