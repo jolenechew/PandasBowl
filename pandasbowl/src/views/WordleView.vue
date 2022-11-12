@@ -5,7 +5,7 @@ import {reactive, onMounted, computed } from "vue";
 
 const state = reactive({
     //set answer here
-    solution: "panda",
+    solution: "bread",
     guesses: ["", "", "", "","",""],
     currentGuessIndex: 0,
     guessedLetters: {
