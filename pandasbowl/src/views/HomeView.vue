@@ -144,7 +144,7 @@
             <hr class="my-8 h-px bg-gray-200 border-0 dark:bg-gray-700">
             <div class="flex flex-wrap flex-col-reverse sm:flex-row pt-10 pb-10">
               <div class="w-full sm:w-1/2 p-6 mt-6">
-                <img src="../assets/RoastedCauliflowerSalad.webp" class="rounded-lg h-128 w-full">
+                <img src="../assets/eatFood.jpg" class="rounded-lg h-128 w-full">
               </div>
               <div class="w-full sm:w-1/2 p-6 mt-6">
                 <div class="align-middle">
