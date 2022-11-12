@@ -76,8 +76,8 @@ onMounted(() => {
 </script>
 
 <template>
-    <body class="bg-lime-100">
-    <div class="flex flex-col h-screen max-w-md mx-auto justify-evenly bg-lime-100" style='background-image: url("../assets/foodbg1.jpg");'>
+    <body class="bg-[#C8DBBE]">
+    <div class="flex flex-col h-screen max-w-md mx-auto justify-evenly bg-[#C8DBBE]" style='background-image: url("../assets/foodbg1.jpg");'>
         <div class="p-6">
         <h2 class="text-center text-rose-900 text-5xl font-bold p-3">Pandle</h2>
            <word-row
@@ -94,7 +94,7 @@ onMounted(() => {
             You earned a discount for your next purchase
             </p>
             <button @click="winGame" class="bg-rose-900 hover:bg-rose-800 text-white font-bold py-2 px-4 rounded-full">
-                <router-link :to="'/'" >
+                <router-link :to="'/marketplace'" >
                     Redeem
                 </router-link>
             </button>
